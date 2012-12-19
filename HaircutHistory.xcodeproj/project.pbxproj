@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B137C221681D58A001B5321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B137C211681D58A001B5321 /* UIKit.framework */; };
+		9B137C241681D58A001B5321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B137C231681D58A001B5321 /* Foundation.framework */; };
+		9B137C261681D58A001B5321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B137C251681D58A001B5321 /* CoreGraphics.framework */; };
+		9B137C2C1681D58A001B5321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C2A1681D58A001B5321 /* InfoPlist.strings */; };
+		9B137C2E1681D58A001B5321 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B137C2D1681D58A001B5321 /* main.m */; };
+		9B137C321681D58A001B5321 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B137C311681D58A001B5321 /* AppDelegate.m */; };
+		9B137C341681D58A001B5321 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C331681D58A001B5321 /* Default.png */; };
+		9B137C361681D58A001B5321 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C351681D58A001B5321 /* Default@2x.png */; };
+		9B137C381681D58A001B5321 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C371681D58A001B5321 /* Default-568h@2x.png */; };
+		9B137C3B1681D58A001B5321 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B137C3A1681D58A001B5321 /* ViewController.m */; };
+		9B137C3E1681D58A001B5321 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C3C1681D58A001B5321 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9B137C1D1681D58A001B5321 /* HaircutHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaircutHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B137C211681D58A001B5321 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9B137C231681D58A001B5321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9B137C251681D58A001B5321 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9B137C291681D58A001B5321 /* HaircutHistory-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HaircutHistory-Info.plist"; sourceTree = "<group>"; };
+		9B137C2B1681D58A001B5321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B137C2D1681D58A001B5321 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9B137C2F1681D58A001B5321 /* HaircutHistory-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HaircutHistory-Prefix.pch"; sourceTree = "<group>"; };
+		9B137C301681D58A001B5321 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9B137C311681D58A001B5321 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9B137C331681D58A001B5321 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9B137C351681D58A001B5321 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9B137C371681D58A001B5321 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9B137C391681D58A001B5321 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9B137C3A1681D58A001B5321 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9B137C3D1681D58A001B5321 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B137C1A1681D58A001B5321 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B137C221681D58A001B5321 /* UIKit.framework in Frameworks */,
+				9B137C241681D58A001B5321 /* Foundation.framework in Frameworks */,
+				9B137C261681D58A001B5321 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B137C121681D58A001B5321 = {
+			isa = PBXGroup;
+			children = (
+				9B137C271681D58A001B5321 /* HaircutHistory */,
+				9B137C201681D58A001B5321 /* Frameworks */,
+				9B137C1E1681D58A001B5321 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9B137C1E1681D58A001B5321 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B137C1D1681D58A001B5321 /* HaircutHistory.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B137C201681D58A001B5321 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B137C211681D58A001B5321 /* UIKit.framework */,
+				9B137C231681D58A001B5321 /* Foundation.framework */,
+				9B137C251681D58A001B5321 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B137C271681D58A001B5321 /* HaircutHistory */ = {
+			isa = PBXGroup;
+			children = (
+				9B137C301681D58A001B5321 /* AppDelegate.h */,
+				9B137C311681D58A001B5321 /* AppDelegate.m */,
+				9B137C391681D58A001B5321 /* ViewController.h */,
+				9B137C3A1681D58A001B5321 /* ViewController.m */,
+				9B137C3C1681D58A001B5321 /* ViewController.xib */,
+				9B137C281681D58A001B5321 /* Supporting Files */,
+			);
+			path = HaircutHistory;
+			sourceTree = "<group>";
+		};
+		9B137C281681D58A001B5321 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B137C291681D58A001B5321 /* HaircutHistory-Info.plist */,
+				9B137C2A1681D58A001B5321 /* InfoPlist.strings */,
+				9B137C2D1681D58A001B5321 /* main.m */,
+				9B137C2F1681D58A001B5321 /* HaircutHistory-Prefix.pch */,
+				9B137C331681D58A001B5321 /* Default.png */,
+				9B137C351681D58A001B5321 /* Default@2x.png */,
+				9B137C371681D58A001B5321 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B137C1C1681D58A001B5321 /* HaircutHistory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B137C411681D58A001B5321 /* Build configuration list for PBXNativeTarget "HaircutHistory" */;
+			buildPhases = (
+				9B137C191681D58A001B5321 /* Sources */,
+				9B137C1A1681D58A001B5321 /* Frameworks */,
+				9B137C1B1681D58A001B5321 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HaircutHistory;
+			productName = HaircutHistory;
+			productReference = 9B137C1D1681D58A001B5321 /* HaircutHistory.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B137C141681D58A001B5321 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = MagicDealers;
+			};
+			buildConfigurationList = 9B137C171681D58A001B5321 /* Build configuration list for PBXProject "HaircutHistory" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9B137C121681D58A001B5321;
+			productRefGroup = 9B137C1E1681D58A001B5321 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B137C1C1681D58A001B5321 /* HaircutHistory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B137C1B1681D58A001B5321 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B137C2C1681D58A001B5321 /* InfoPlist.strings in Resources */,
+				9B137C341681D58A001B5321 /* Default.png in Resources */,
+				9B137C361681D58A001B5321 /* Default@2x.png in Resources */,
+				9B137C381681D58A001B5321 /* Default-568h@2x.png in Resources */,
+				9B137C3E1681D58A001B5321 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B137C191681D58A001B5321 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B137C2E1681D58A001B5321 /* main.m in Sources */,
+				9B137C321681D58A001B5321 /* AppDelegate.m in Sources */,
+				9B137C3B1681D58A001B5321 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9B137C2A1681D58A001B5321 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B137C2B1681D58A001B5321 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9B137C3C1681D58A001B5321 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B137C3D1681D58A001B5321 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B137C3F1681D58A001B5321 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9B137C401681D58A001B5321 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B137C421681D58A001B5321 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HaircutHistory/HaircutHistory-Prefix.pch";
+				INFOPLIST_FILE = "HaircutHistory/HaircutHistory-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9B137C431681D58A001B5321 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HaircutHistory/HaircutHistory-Prefix.pch";
+				INFOPLIST_FILE = "HaircutHistory/HaircutHistory-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B137C171681D58A001B5321 /* Build configuration list for PBXProject "HaircutHistory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B137C3F1681D58A001B5321 /* Debug */,
+				9B137C401681D58A001B5321 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B137C411681D58A001B5321 /* Build configuration list for PBXNativeTarget "HaircutHistory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B137C421681D58A001B5321 /* Debug */,
+				9B137C431681D58A001B5321 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B137C141681D58A001B5321 /* Project object */;
+}
