@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  HaircutHistory
 //
 //  Created by Jorge Pardo on 19/12/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainViewController : UIViewController
 
 @end

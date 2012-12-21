@@ -16,8 +16,14 @@
 		9B137C341681D58A001B5321 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C331681D58A001B5321 /* Default.png */; };
 		9B137C361681D58A001B5321 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C351681D58A001B5321 /* Default@2x.png */; };
 		9B137C381681D58A001B5321 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C371681D58A001B5321 /* Default-568h@2x.png */; };
-		9B137C3B1681D58A001B5321 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B137C3A1681D58A001B5321 /* ViewController.m */; };
-		9B137C3E1681D58A001B5321 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C3C1681D58A001B5321 /* ViewController.xib */; };
+		9B137C471681D5AD001B5321 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B137C451681D5AD001B5321 /* MainViewController.m */; };
+		9B137C481681D5AD001B5321 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C461681D5AD001B5321 /* MainViewController.xib */; };
+		9B137C4F1681DF3C001B5321 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C4E1681DF3C001B5321 /* Localizable.strings */; };
+		9B137C5B1681E2A7001B5321 /* NewHaircutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B137C591681E2A7001B5321 /* NewHaircutViewController.m */; };
+		9B137C5C1681E2A7001B5321 /* NewHaircutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C5A1681E2A7001B5321 /* NewHaircutViewController.xib */; };
+		9BC3D6631683659300D50B6B /* amy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6601683659300D50B6B /* amy.png */; };
+		9BC3D6641683659300D50B6B /* docta.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6611683659300D50B6B /* docta.png */; };
+		9BC3D6651683659300D50B6B /* rory.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6621683659300D50B6B /* rory.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +40,16 @@
 		9B137C331681D58A001B5321 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9B137C351681D58A001B5321 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9B137C371681D58A001B5321 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		9B137C391681D58A001B5321 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9B137C3A1681D58A001B5321 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9B137C3D1681D58A001B5321 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		9B137C441681D5AD001B5321 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		9B137C451681D5AD001B5321 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		9B137C461681D5AD001B5321 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		9B137C4E1681DF3C001B5321 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		9B137C581681E2A7001B5321 /* NewHaircutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewHaircutViewController.h; sourceTree = "<group>"; };
+		9B137C591681E2A7001B5321 /* NewHaircutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewHaircutViewController.m; sourceTree = "<group>"; };
+		9B137C5A1681E2A7001B5321 /* NewHaircutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewHaircutViewController.xib; sourceTree = "<group>"; };
+		9BC3D6601683659300D50B6B /* amy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amy.png; sourceTree = "<group>"; };
+		9BC3D6611683659300D50B6B /* docta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docta.png; sourceTree = "<group>"; };
+		9BC3D6621683659300D50B6B /* rory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rory.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				9B137C271681D58A001B5321 /* HaircutHistory */,
+				9B137C4D1681DF28001B5321 /* Resources */,
 				9B137C201681D58A001B5321 /* Frameworks */,
 				9B137C1E1681D58A001B5321 /* Products */,
 			);
@@ -85,9 +99,12 @@
 			children = (
 				9B137C301681D58A001B5321 /* AppDelegate.h */,
 				9B137C311681D58A001B5321 /* AppDelegate.m */,
-				9B137C391681D58A001B5321 /* ViewController.h */,
-				9B137C3A1681D58A001B5321 /* ViewController.m */,
-				9B137C3C1681D58A001B5321 /* ViewController.xib */,
+				9B137C441681D5AD001B5321 /* MainViewController.h */,
+				9B137C451681D5AD001B5321 /* MainViewController.m */,
+				9B137C461681D5AD001B5321 /* MainViewController.xib */,
+				9B137C581681E2A7001B5321 /* NewHaircutViewController.h */,
+				9B137C591681E2A7001B5321 /* NewHaircutViewController.m */,
+				9B137C5A1681E2A7001B5321 /* NewHaircutViewController.xib */,
 				9B137C281681D58A001B5321 /* Supporting Files */,
 			);
 			path = HaircutHistory;
@@ -105,6 +122,26 @@
 				9B137C371681D58A001B5321 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B137C4D1681DF28001B5321 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B137C5D168211B0001B5321 /* Images */,
+				9B137C4E1681DF3C001B5321 /* Localizable.strings */,
+			);
+			name = Resources;
+			path = HaircutHistory;
+			sourceTree = "<group>";
+		};
+		9B137C5D168211B0001B5321 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9BC3D6601683659300D50B6B /* amy.png */,
+				9BC3D6611683659300D50B6B /* docta.png */,
+				9BC3D6621683659300D50B6B /* rory.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +199,12 @@
 				9B137C341681D58A001B5321 /* Default.png in Resources */,
 				9B137C361681D58A001B5321 /* Default@2x.png in Resources */,
 				9B137C381681D58A001B5321 /* Default-568h@2x.png in Resources */,
-				9B137C3E1681D58A001B5321 /* ViewController.xib in Resources */,
+				9B137C481681D5AD001B5321 /* MainViewController.xib in Resources */,
+				9B137C4F1681DF3C001B5321 /* Localizable.strings in Resources */,
+				9B137C5C1681E2A7001B5321 /* NewHaircutViewController.xib in Resources */,
+				9BC3D6631683659300D50B6B /* amy.png in Resources */,
+				9BC3D6641683659300D50B6B /* docta.png in Resources */,
+				9BC3D6651683659300D50B6B /* rory.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +217,8 @@
 			files = (
 				9B137C2E1681D58A001B5321 /* main.m in Sources */,
 				9B137C321681D58A001B5321 /* AppDelegate.m in Sources */,
-				9B137C3B1681D58A001B5321 /* ViewController.m in Sources */,
+				9B137C471681D5AD001B5321 /* MainViewController.m in Sources */,
+				9B137C5B1681E2A7001B5321 /* NewHaircutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +231,6 @@
 				9B137C2B1681D58A001B5321 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9B137C3C1681D58A001B5321 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9B137C3D1681D58A001B5321 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -292,6 +327,7 @@
 				9B137C431681D58A001B5321 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
