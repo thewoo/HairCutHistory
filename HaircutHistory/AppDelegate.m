@@ -13,6 +13,24 @@
 
 @synthesize navController;
 
+
+#pragma mark Actions.
+
++(void)checkAndCopyFileWithName:(NSString *)name ofType:(NSString *)type {
+    
+    NSString *roothPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = [roothPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", name, type]];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:name ofType:type];
+        [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:filePath error:nil];
+    }
+}
+
+
+#pragma mark AppDelegate's.
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

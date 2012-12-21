@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "NewHaircutViewController.h"
+#import "DataManager.h"
 
 @interface MainViewController ()
 
@@ -32,6 +33,8 @@
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addHairCut:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    NSLog(@"%@", [[DataManager sharedInstance] getAllHaircuts]);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

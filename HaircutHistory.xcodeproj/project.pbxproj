@@ -24,6 +24,13 @@
 		9BC3D6631683659300D50B6B /* amy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6601683659300D50B6B /* amy.png */; };
 		9BC3D6641683659300D50B6B /* docta.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6611683659300D50B6B /* docta.png */; };
 		9BC3D6651683659300D50B6B /* rory.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6621683659300D50B6B /* rory.png */; };
+		9BC3D669168476A500D50B6B /* Haircut.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D668168476A500D50B6B /* Haircut.m */; };
+		9BC3D66C1684771600D50B6B /* Hairdresser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D66B1684771600D50B6B /* Hairdresser.m */; };
+		9BC3D66F168479E700D50B6B /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D66E168479E600D50B6B /* Company.m */; };
+		9BC3D67B16847C9200D50B6B /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D67A16847C9200D50B6B /* SQLiteManager.m */; };
+		9BC3D68616847E7100D50B6B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D68516847E7100D50B6B /* DataManager.m */; };
+		9BC3D6901684ACCB00D50B6B /* History.db in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D68F1684ACCB00D50B6B /* History.db */; };
+		9BC3D6941684BFD500D50B6B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC3D6931684BFD500D50B6B /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +57,18 @@
 		9BC3D6601683659300D50B6B /* amy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amy.png; sourceTree = "<group>"; };
 		9BC3D6611683659300D50B6B /* docta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docta.png; sourceTree = "<group>"; };
 		9BC3D6621683659300D50B6B /* rory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rory.png; sourceTree = "<group>"; };
+		9BC3D667168476A500D50B6B /* Haircut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haircut.h; sourceTree = "<group>"; };
+		9BC3D668168476A500D50B6B /* Haircut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Haircut.m; sourceTree = "<group>"; };
+		9BC3D66A1684771600D50B6B /* Hairdresser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hairdresser.h; sourceTree = "<group>"; };
+		9BC3D66B1684771600D50B6B /* Hairdresser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hairdresser.m; sourceTree = "<group>"; };
+		9BC3D66D168479E600D50B6B /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		9BC3D66E168479E600D50B6B /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		9BC3D67916847C9200D50B6B /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
+		9BC3D67A16847C9200D50B6B /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
+		9BC3D68416847E7100D50B6B /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		9BC3D68516847E7100D50B6B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		9BC3D68F1684ACCB00D50B6B /* History.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = History.db; sourceTree = "<group>"; };
+		9BC3D6931684BFD500D50B6B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC3D6941684BFD500D50B6B /* libsqlite3.dylib in Frameworks */,
 				9B137C221681D58A001B5321 /* UIKit.framework in Frameworks */,
 				9B137C241681D58A001B5321 /* Foundation.framework in Frameworks */,
 				9B137C261681D58A001B5321 /* CoreGraphics.framework in Frameworks */,
@@ -87,6 +107,7 @@
 		9B137C201681D58A001B5321 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BC3D6931684BFD500D50B6B /* libsqlite3.dylib */,
 				9B137C211681D58A001B5321 /* UIKit.framework */,
 				9B137C231681D58A001B5321 /* Foundation.framework */,
 				9B137C251681D58A001B5321 /* CoreGraphics.framework */,
@@ -97,6 +118,8 @@
 		9B137C271681D58A001B5321 /* HaircutHistory */ = {
 			isa = PBXGroup;
 			children = (
+				9BC3D67816847C8700D50B6B /* SQLite */,
+				9BC3D666168454B100D50B6B /* Objects */,
 				9B137C301681D58A001B5321 /* AppDelegate.h */,
 				9B137C311681D58A001B5321 /* AppDelegate.m */,
 				9B137C441681D5AD001B5321 /* MainViewController.h */,
@@ -129,6 +152,7 @@
 			children = (
 				9B137C5D168211B0001B5321 /* Images */,
 				9B137C4E1681DF3C001B5321 /* Localizable.strings */,
+				9BC3D68F1684ACCB00D50B6B /* History.db */,
 			);
 			name = Resources;
 			path = HaircutHistory;
@@ -142,6 +166,30 @@
 				9BC3D6621683659300D50B6B /* rory.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		9BC3D666168454B100D50B6B /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				9BC3D68416847E7100D50B6B /* DataManager.h */,
+				9BC3D68516847E7100D50B6B /* DataManager.m */,
+				9BC3D667168476A500D50B6B /* Haircut.h */,
+				9BC3D668168476A500D50B6B /* Haircut.m */,
+				9BC3D66A1684771600D50B6B /* Hairdresser.h */,
+				9BC3D66B1684771600D50B6B /* Hairdresser.m */,
+				9BC3D66D168479E600D50B6B /* Company.h */,
+				9BC3D66E168479E600D50B6B /* Company.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		9BC3D67816847C8700D50B6B /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				9BC3D67916847C9200D50B6B /* SQLiteManager.h */,
+				9BC3D67A16847C9200D50B6B /* SQLiteManager.m */,
+			);
+			name = SQLite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +253,7 @@
 				9BC3D6631683659300D50B6B /* amy.png in Resources */,
 				9BC3D6641683659300D50B6B /* docta.png in Resources */,
 				9BC3D6651683659300D50B6B /* rory.png in Resources */,
+				9BC3D6901684ACCB00D50B6B /* History.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +268,11 @@
 				9B137C321681D58A001B5321 /* AppDelegate.m in Sources */,
 				9B137C471681D5AD001B5321 /* MainViewController.m in Sources */,
 				9B137C5B1681E2A7001B5321 /* NewHaircutViewController.m in Sources */,
+				9BC3D669168476A500D50B6B /* Haircut.m in Sources */,
+				9BC3D66C1684771600D50B6B /* Hairdresser.m in Sources */,
+				9BC3D66F168479E700D50B6B /* Company.m in Sources */,
+				9BC3D67B16847C9200D50B6B /* SQLiteManager.m in Sources */,
+				9BC3D68616847E7100D50B6B /* DataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

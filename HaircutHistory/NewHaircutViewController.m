@@ -37,7 +37,7 @@
     self.imagePickerController.navigationBarHidden = YES;
     self.imagePickerController.toolbarHidden = YES;
     
-    self.imagePickerController.cameraOverlayView = self.customOverlayView;
+//    self.imagePickerController.cameraOverlayView = self.customOverlayView;
     
     
     [self presentViewController:imagePickerController animated:YES completion:^{}];
@@ -53,7 +53,7 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    UIImage *picture = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    UIImage *picture = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"%ddMMyyHHmm"];
@@ -62,7 +62,7 @@
     
     NSLog(@"%@", pathWithFile);
     
-//    [UIImagePNGRepresentation(picture) writeToFile:pathWithFile atomically:YES];    
+//    [UIImagePNGRepresentation(picture) writeToFile:pathWithFile atomically:YES];
 }
 
 #pragma mark UIViewController's.
