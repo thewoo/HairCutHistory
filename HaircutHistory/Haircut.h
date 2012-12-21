@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) Hairdresser *hairdresser;
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *shapeDescription;
 
 @property int rating;
 @property int price;

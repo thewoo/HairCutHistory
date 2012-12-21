@@ -13,7 +13,7 @@
 @synthesize ID;
 @synthesize date;
 @synthesize hairdresser;
-@synthesize description;
+@synthesize shapeDescription;
 @synthesize rating;
 @synthesize price;
 @synthesize imagesArray;

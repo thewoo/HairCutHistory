@@ -50,7 +50,7 @@ static DataManager *instance = nil;
             hairdresser.company = company;
             haircut.hairdresser = hairdresser;
             
-            haircut.description = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 8)];
+            haircut.shapeDescription = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 8)];
             haircut.rating = sqlite3_column_int(sqlStatement, 9);
             haircut.price = sqlite3_column_int(sqlStatement, 10);
             
