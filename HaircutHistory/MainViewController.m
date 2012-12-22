@@ -9,12 +9,16 @@
 #import "MainViewController.h"
 #import "NewHaircutViewController.h"
 #import "DataManager.h"
+#import "Haircut.h"
 
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
+
+@synthesize haircutsArray;
+@synthesize haircutsTableView;
 
 #pragma mark Actions.
 
@@ -26,6 +30,37 @@
 }
 
 
+#pragma mark UITableview's Delegate & Datasource.
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [haircutsArray count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    
+    Haircut *haircut = [haircutsArray objectAtIndex:[indexPath row]];
+
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", haircut.date];
+    
+    return cell;
+}
+
+
+
+
+
 #pragma mark UIViewController's.
 
 - (void)viewDidLoad {
@@ -34,7 +69,9 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addHairCut:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
-    NSLog(@"%@", [[DataManager sharedInstance] getAllHaircuts]);
+    self.haircutsArray = [[DataManager sharedInstance] getAllHaircuts];
+    
+    NSLog(@"%@", haircutsArray);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

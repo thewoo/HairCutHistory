@@ -14,7 +14,7 @@
 
 @property int ID;
 
-@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) Hairdresser *hairdresser;
 @property (nonatomic, strong) NSString *shapeDescription;
 

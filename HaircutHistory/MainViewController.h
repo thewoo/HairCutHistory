@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+
+@property (nonatomic, strong) NSMutableArray *haircutsArray;
+@property (nonatomic, weak) IBOutlet UITableView *haircutsTableView;
+
 
 @end

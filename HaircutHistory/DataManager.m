@@ -19,10 +19,7 @@ static DataManager *instance = nil;
 -(NSMutableArray *)getAllHaircuts {
     
     NSMutableArray *haircutsArray = [[NSMutableArray alloc] init];
-    
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+
     
     char *sql = "Select Haircuts.haircutId, Haircuts.date, Hairdressers.hairdresserId, Hairdressers.name, Companies.companyId, Companies.name, Companies.telephone, Companies.address, Haircuts.description, Haircuts.rating, Haircuts.price from Haircuts, Hairdressers, Companies where Haircuts.hairdresserId = Hairdressers.hairdresserId and Hairdressers.companyId = Companies.companyId";
     
@@ -37,7 +34,7 @@ static DataManager *instance = nil;
             Company *company = [[Company alloc] init];
             
             haircut.ID = sqlite3_column_int(sqlStatement, 0);
-            haircut.date = [dateFormatter dateFromString:[NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 1)]];
+            haircut.date = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 1)];            
             
             hairdresser.ID = sqlite3_column_int(sqlStatement, 2);
             hairdresser.name = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 3)];
