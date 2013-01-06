@@ -25,8 +25,7 @@
 -(void)addHairCut:(UIBarButtonItem *)barButton {
     
     NewHaircutViewController *newHaircutViewController = [[NewHaircutViewController alloc] initWithNibName:@"NewHaircutViewController" bundle:nil];
-    [self.navigationController presentViewController:newHaircutViewController animated:YES completion:^{}];
-    
+    [self.navigationController pushViewController:newHaircutViewController animated:YES];
 }
 
 
@@ -72,6 +71,7 @@
     self.haircutsArray = [[DataManager sharedInstance] getAllHaircuts];
     
     NSLog(@"%@", haircutsArray);
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
