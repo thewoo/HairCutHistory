@@ -3,3 +3,9 @@
 /* MainViewController */
 
 "mainViewController.title" = "Haircut History";
+
+/* NewHaircutViewController */
+
+"newHaircutViewController.label.description" = "Descripción";
+"newHaircutViewController.label.hairdresser" = "Peluquero";
+"newHaircutViewController.label.rating" = "Valoración";
