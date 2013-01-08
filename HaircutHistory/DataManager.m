@@ -16,6 +16,8 @@ static DataManager *instance = nil;
 
 @implementation DataManager
 
+#pragma mark DataBase Calls.
+
 -(NSMutableArray *)getAllHaircuts {
     
     NSMutableArray *haircutsArray = [[NSMutableArray alloc] init];
@@ -63,6 +65,33 @@ static DataManager *instance = nil;
         
     return haircutsArray;
 }
+
+
+-(BOOL)checkForCompany:(NSString *)companyName {
+    
+    BOOL exists = NO;
+    
+    char *sql = "Select name from Companies";
+    sqlite3_stmt *sqlStatement;
+    
+    if (sqlite3_prepare_v2([SQLiteManager getConnection], sql, -1, &sqlStatement, NULL) == SQLITE_OK) {
+        
+        while (sqlite3_step(sqlStatement) == SQLITE_ROW) {
+            
+            if ([[[NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 0)] capitalizedString] isEqualToString:[companyName capitalizedString]]) {
+                
+                exists = YES;
+                break;
+            }
+        }
+    }
+    
+    [SQLiteManager closeConnection];
+    
+    return exists;
+}
+
+
 
 
 

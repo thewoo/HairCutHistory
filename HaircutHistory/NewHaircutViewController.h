@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewHaircutViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+@interface NewHaircutViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *topView;
 @property (nonatomic, weak) IBOutlet UIView *bottomView;
@@ -17,8 +17,13 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *addPictureButton;
 
-@property (nonatomic, weak) IBOutlet UILabel *hairdresserLabel;
 @property (nonatomic, weak) IBOutlet UITextField *hairdresserTextField;
+@property (nonatomic, weak) IBOutlet UITextView *descriptionTextView;
+
+@property (nonatomic, weak) IBOutlet UITextField *companyTextField;
+
+
+
 
 @property (nonatomic, strong) IBOutlet UIView *customOverlayView;
 @property (nonatomic, weak) IBOutlet UIButton *takePictureButton;

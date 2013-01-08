@@ -7,6 +7,7 @@
 //
 
 #import "NewHaircutViewController.h"
+#import "DataManager.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface NewHaircutViewController ()
@@ -22,13 +23,17 @@
 
 @synthesize addPictureButton;
 
+@synthesize hairdresserTextField;
+@synthesize descriptionTextView;
+
+@synthesize companyTextField;
+
 @synthesize takePictureButton;
 @synthesize customOverlayView;
 
-@synthesize hairdresserLabel;
-@synthesize hairdresserTextField;
-
 @synthesize imagePickerController;
+
+UIColor *placeHolderColor;
 
 #pragma mark IBActions.
 
@@ -44,7 +49,7 @@
     self.imagePickerController.navigationBarHidden = YES;
     self.imagePickerController.toolbarHidden = YES;
     
-//    self.imagePickerController.cameraOverlayView = self.customOverlayView;
+    //    self.imagePickerController.cameraOverlayView = self.customOverlayView;
     
     
     [self presentViewController:imagePickerController animated:YES completion:^{}];
@@ -62,12 +67,12 @@
     
     [self.topView.layer  setShadowColor:[[UIColor blackColor] CGColor]];
     [self.bottomView.layer  setShadowColor:[[UIColor blackColor] CGColor]];
-
+    
     [UIView animateWithDuration:0.5 animations:^{
         
         self.topView.frame = CGRectMake(0, -210, topView.frame.size.width, topView.frame.size.height);
         self.bottomView.frame = CGRectMake(0, 216, bottomView.frame.size.width, bottomView.frame.size.height);
-
+        
     }];
 }
 
@@ -81,9 +86,68 @@
     } completion:^(BOOL finished) {
         
         [self.topView.layer  setShadowColor:[[UIColor clearColor] CGColor]];
-        [self.bottomView.layer  setShadowColor:[[UIColor clearColor] CGColor]];        
-    }];    
+        [self.bottomView.layer  setShadowColor:[[UIColor clearColor] CGColor]];
+    }];
 }
+
+-(void)moveTopViewAndForm {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.bottomView.frame = CGRectMake(0, 216, bottomView.frame.size.width, bottomView.frame.size.height);
+    }];
+}
+
+
+-(void)moveTextViewUp {
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        self.topView.frame = CGRectMake(0, -185, self.topView.frame.size.width, self.topView.frame.size.height);
+        self.bottomView.frame = CGRectMake(0, 75, self.bottomView.frame.size.width, self.bottomView.frame.size.height);
+        
+    }];
+}
+
+
+-(void)moveTextViewDown {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        self.topView.frame = CGRectMake(0, 0, self.topView.frame.size.width, self.topView.frame.size.height);
+        self.bottomView.frame = CGRectMake(0, 260, self.bottomView.frame.size.width, self.bottomView.frame.size.height);
+        
+    }];
+    
+}
+
+
+-(void)checkCompany {
+    
+    if ([[DataManager sharedInstance] checkForCompany:companyTextField.text]) {
+        
+    } else {
+        [self moveTopViewAndForm];
+    }
+}
+
+
+-(void)saveHaircut:(id)sender {
+    
+    NSLog(@"Information checked and Saved. *Cough*");
+}
+
+
+-(void)changeTextColor:(NSString *)color fromTextView:(UITextView *)textview {
+    
+    if ([color isEqualToString:@"Green"]) {
+        
+        
+    }
+    
+    
+}
+
+
 
 #pragma mark UITextField's Delegate.
 
@@ -109,12 +173,54 @@
     return YES;
 }
 
+#pragma mark UITextView's Delegate.
+
+-(void)textViewDidBeginEditing:(UITextView *)textView {
+    
+    if (textView.textColor == placeHolderColor) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    
+    [self moveTextViewUp];
+    
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView {
+    
+    if ([textView.text length] == 0) {
+        [textView setText:NSLocalizedString(@"newHaircutViewController.placeholder.description", nil)];
+        textView.textColor = placeHolderColor;
+    }
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        [self moveTextViewDown];
+    }
+    
+    if ([textView.text length] > 10) {
+        
+    }
+    
+    return  YES;
+}
+
+#pragma mark ScrollView's Delegate.
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    NSLog(@"%f", scrollView.contentOffset.x);
+}
+
 
 #pragma mark UIImagePicker Delegate.
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-//    UIImage *picture = [info objectForKey:UIImagePickerControllerOriginalImage];
+    //    UIImage *picture = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"%ddMMyyHHmm"];
@@ -123,7 +229,7 @@
     
     NSLog(@"%@", pathWithFile);
     
-//    [UIImagePNGRepresentation(picture) writeToFile:pathWithFile atomically:YES];
+    //    [UIImagePNGRepresentation(picture) writeToFile:pathWithFile atomically:YES];
 }
 
 #pragma mark UIViewController's.
@@ -132,6 +238,11 @@
     
     [super viewDidLoad];
     
+    placeHolderColor = [UIColor colorWithWhite:0.702 alpha:1.000];
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"newHaircutViewController.button.save", nil) style:UIBarButtonSystemItemAction target:self action:@selector(saveHaircut:)];
+    
+    self.navigationItem.rightBarButtonItem = saveButton;
     
     UIImageView *doctaImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"docta"]];
     doctaImageView.frame = CGRectMake(0, 0, 320, 200);
@@ -156,6 +267,11 @@
     [self.bottomView.layer  setShadowColor:[[UIColor clearColor] CGColor]];
     [self.bottomView.layer setShadowOffset:CGSizeMake(0, -2)];
     [self.bottomView.layer setShadowOpacity:0.5];
+    
+    [self.descriptionTextView setText:NSLocalizedString(@"newHaircutViewController.placeholder.description", nil)];
+    self.descriptionTextView.textColor = placeHolderColor;
+    self.descriptionTextView.layer.cornerRadius = 10.0f;
+    
     
 }
 

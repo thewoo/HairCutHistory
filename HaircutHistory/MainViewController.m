@@ -11,8 +11,6 @@
 #import "DataManager.h"
 #import "Haircut.h"
 
-#import "TestViewController.h"
-
 @interface MainViewController ()
 
 @end
@@ -28,9 +26,6 @@
     
     NewHaircutViewController *newHaircutViewController = [[NewHaircutViewController alloc] initWithNibName:@"NewHaircutViewController" bundle:nil];
     [self.navigationController pushViewController:newHaircutViewController animated:YES];
-    
-//    TestViewController *test = [[TestViewController alloc] initWithNibName:@"TestViewController" bundle:nil];
-//    [self.navigationController pushViewController:test animated:YES];
 }
 
 

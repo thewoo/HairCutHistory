@@ -31,8 +31,6 @@
 		9BC3D68616847E7100D50B6B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D68516847E7100D50B6B /* DataManager.m */; };
 		9BC3D6901684ACCB00D50B6B /* History.db in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D68F1684ACCB00D50B6B /* History.db */; };
 		9BC3D6941684BFD500D50B6B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC3D6931684BFD500D50B6B /* libsqlite3.dylib */; };
-		9BEA365B169ADCF500A6AE15 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA3659169ADCF500A6AE15 /* TestViewController.m */; };
-		9BEA365C169ADCF500A6AE15 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BEA365A169ADCF500A6AE15 /* TestViewController.xib */; };
 		9BEA365F169AE9B100A6AE15 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA365E169AE9B100A6AE15 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,9 +70,6 @@
 		9BC3D68516847E7100D50B6B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		9BC3D68F1684ACCB00D50B6B /* History.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = History.db; sourceTree = "<group>"; };
 		9BC3D6931684BFD500D50B6B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		9BEA3658169ADCF500A6AE15 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		9BEA3659169ADCF500A6AE15 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		9BEA365A169ADCF500A6AE15 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		9BEA365E169AE9B100A6AE15 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -137,9 +132,6 @@
 				9B137C581681E2A7001B5321 /* NewHaircutViewController.h */,
 				9B137C591681E2A7001B5321 /* NewHaircutViewController.m */,
 				9B137C5A1681E2A7001B5321 /* NewHaircutViewController.xib */,
-				9BEA3658169ADCF500A6AE15 /* TestViewController.h */,
-				9BEA3659169ADCF500A6AE15 /* TestViewController.m */,
-				9BEA365A169ADCF500A6AE15 /* TestViewController.xib */,
 				9B137C281681D58A001B5321 /* Supporting Files */,
 			);
 			path = HaircutHistory;
@@ -266,7 +258,6 @@
 				9BC3D6641683659300D50B6B /* docta.png in Resources */,
 				9BC3D6651683659300D50B6B /* rory.png in Resources */,
 				9BC3D6901684ACCB00D50B6B /* History.db in Resources */,
-				9BEA365C169ADCF500A6AE15 /* TestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +277,6 @@
 				9BC3D66F168479E700D50B6B /* Company.m in Sources */,
 				9BC3D67B16847C9200D50B6B /* SQLiteManager.m in Sources */,
 				9BC3D68616847E7100D50B6B /* DataManager.m in Sources */,
-				9BEA365B169ADCF500A6AE15 /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

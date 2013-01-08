@@ -11,7 +11,7 @@
 @interface DataManager : NSObject
 
 -(NSMutableArray *)getAllHaircuts;
-
+-(BOOL)checkForCompany:(NSString *)companyName;
 
 
 

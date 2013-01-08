@@ -6,6 +6,8 @@
 
 /* NewHaircutViewController */
 
-"newHaircutViewController.label.description" = "Descripción";
-"newHaircutViewController.label.hairdresser" = "Peluquero";
-"newHaircutViewController.label.rating" = "Valoración";
+"newHaircutViewController.placeholder.description" = "Aquí deberías poner una breve pero sucinta descripción de cómo ha sido el corte. De hecho, mejor pregúntale al peluquero.";
+
+"newHaircutViewController.placeholder.hairdresser" = "Peluquero";
+
+"newHaircutViewController.button.save" = "Guardar";
