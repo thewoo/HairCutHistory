@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UIView *bottomView;
 
 @property (nonatomic, weak) IBOutlet UIScrollView *imagesScrollView;
+@property (nonatomic, strong) IBOutlet UIView *imageMenuView;
 
 @property (nonatomic, weak) IBOutlet UIButton *addPictureButton;
 

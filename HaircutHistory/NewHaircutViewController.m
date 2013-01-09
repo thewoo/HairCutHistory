@@ -34,6 +34,9 @@
 @synthesize imagePickerController;
 
 UIColor *placeHolderColor;
+bool displayingMenu = NO;
+
+int scrollPoint = 0;
 
 #pragma mark IBActions.
 
@@ -137,18 +140,6 @@ UIColor *placeHolderColor;
 }
 
 
--(void)changeTextColor:(NSString *)color fromTextView:(UITextView *)textview {
-    
-    if ([color isEqualToString:@"Green"]) {
-        
-        
-    }
-    
-    
-}
-
-
-
 #pragma mark UITextField's Delegate.
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -201,8 +192,38 @@ UIColor *placeHolderColor;
         [self moveTextViewDown];
     }
     
-    if ([textView.text length] > 10) {
+    
+    if ([textView.text length] == 70) {
         
+        textView.textColor = [UIColor colorWithRed:0.196 green:0.549 blue:0.000 alpha:1.000];
+        
+    } else if ([textView.text length] == 75) {
+        
+        textView.textColor = [UIColor colorWithRed:0.784 green:0.906 blue:0.392 alpha:1.000];
+        
+    } else if ([textView.text length]  == 80) {
+        
+        textView.textColor = [UIColor colorWithRed:0.969 green:0.906 blue:0.392 alpha:1.000];
+
+    } else if ([textView.text length] == 85) {
+        
+        textView.textColor = [UIColor colorWithRed:1.000 green:0.689 blue:0.000 alpha:1.000];
+        
+    } else if ([textView.text length] == 90) {
+        
+        textView.textColor = [UIColor colorWithRed:1.000 green:0.529 blue:0.000 alpha:1.000];
+        
+    } else if ([textView.text length] == 95) {
+        
+        textView.textColor = [UIColor colorWithRed:1.000 green:0.321 blue:0.000 alpha:1.000];
+        
+    } else if ([textView.text length] == 100) {
+        
+        textView.textColor = [UIColor colorWithRed:0.888 green:0.000 blue:0.000 alpha:1.000];
+    
+    } else if ([textView.text length] < 70) {
+        
+        textView.textColor = [UIColor blackColor];
     }
     
     return  YES;
@@ -212,7 +233,41 @@ UIColor *placeHolderColor;
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    NSLog(@"%f", scrollView.contentOffset.x);
+    if (scrollView.contentOffset.x < 1) {
+        [scrollView setShowsHorizontalScrollIndicator:NO];
+        
+    } else {
+        [scrollView setShowsHorizontalScrollIndicator:YES];
+        
+        if (displayingMenu) {
+            scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+            displayingMenu = NO;
+        }
+    }
+}
+
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    if (scrollView.contentOffset.x < -50) {
+        
+        if (displayingMenu) {
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+            }];
+            
+            displayingMenu = NO;
+            
+        } else {
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                scrollView.contentInset = UIEdgeInsetsMake(0, 100, 0, 0);
+            }];
+            
+            displayingMenu = YES;
+        }
+    }    
 }
 
 
@@ -264,13 +319,21 @@ UIColor *placeHolderColor;
     [self.topView.layer setShadowOffset:CGSizeMake(0, 5)];
     [self.topView.layer setShadowOpacity:0.5];
     
-    [self.bottomView.layer  setShadowColor:[[UIColor clearColor] CGColor]];
+    [self.bottomView.layer setShadowColor:[[UIColor clearColor] CGColor]];
     [self.bottomView.layer setShadowOffset:CGSizeMake(0, -2)];
     [self.bottomView.layer setShadowOpacity:0.5];
+    
+    [doctaImageView.layer setShadowPath:[UIBezierPath bezierPathWithRect:CGRectMake(0, 0, -5, 200)].CGPath];
+
+    [doctaImageView.layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [doctaImageView.layer setShadowOpacity:0.5];
     
     [self.descriptionTextView setText:NSLocalizedString(@"newHaircutViewController.placeholder.description", nil)];
     self.descriptionTextView.textColor = placeHolderColor;
     self.descriptionTextView.layer.cornerRadius = 10.0f;
+    
+    self.imageMenuView.frame = CGRectMake(-110, 0, 100, 200);
+    [self.imagesScrollView addSubview:self.imageMenuView];
     
     
 }
