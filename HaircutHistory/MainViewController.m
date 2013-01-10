@@ -10,6 +10,9 @@
 #import "NewHaircutViewController.h"
 #import "DataManager.h"
 #import "Haircut.h"
+#import "Hairdresser.h"
+#import "Company.h"
+#import "HaircutCustomCell.h"
 
 @interface MainViewController ()
 
@@ -36,26 +39,30 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return [haircutsArray count];
+    return 2;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    HaircutCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if (cell == nil) {
         
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [[HaircutCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    Haircut *haircut = [haircutsArray objectAtIndex:[indexPath row]];
-
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", haircut.date];
+//    Haircut *haircut = [haircutsArray objectAtIndex:[indexPath row]];
+//    
+//    cell.companyLabel.text = haircut.hairdresser.company.name;
+//    cell.dateLabel.text = [NSString stringWithFormat:@"%@", haircut.date];
     
     return cell;
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {    
+    return 55;
+}
 
 
 
@@ -70,7 +77,7 @@
     
     self.haircutsArray = [[DataManager sharedInstance] getAllHaircuts];
     
-    NSLog(@"%@", haircutsArray);
+    [self.haircutsTableView registerNib:[UINib nibWithNibName:@"HaircutCustomCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
 }
 
