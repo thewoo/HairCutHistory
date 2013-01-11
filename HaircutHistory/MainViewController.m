@@ -23,6 +23,54 @@
 @synthesize haircutsArray;
 @synthesize haircutsTableView;
 
+
+#pragma mark IBActions.
+
+-(IBAction)sortByDate:(id)sender {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yy"];
+    
+    self.haircutsArray = [[self.haircutsArray sortedArrayUsingComparator:^(id obj1, id obj2) {
+        
+        Haircut *one = obj1;
+        Haircut *two = obj2;
+        
+        return (NSComparisonResult) [[dateFormatter dateFromString:two.date] compare:[dateFormatter dateFromString:one.date]];
+        
+    }] mutableCopy];
+    
+    [self.haircutsTableView reloadData];
+   
+}
+
+-(IBAction)sortByRating:(id)sender {
+    
+    NSMutableArray *sortedArray = [[NSMutableArray alloc] init];
+    
+    for (int x=5; x > 0; x--) {
+        
+        for (Haircut *h in self.haircutsArray) {
+            
+            if (h.rating == x) {
+                [sortedArray addObject:h];
+            }
+        }
+    }
+    
+    self.haircutsArray = sortedArray;
+    [self.haircutsTableView reloadData];
+    
+}
+
+-(IBAction)sortByHairdresser:(id)sender {
+    
+    
+    
+    
+    
+}
+
 #pragma mark Actions.
 
 -(void)addHairCut:(UIBarButtonItem *)barButton {
@@ -39,7 +87,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return [haircutsArray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -51,10 +99,11 @@
         cell = [[HaircutCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-//    Haircut *haircut = [haircutsArray objectAtIndex:[indexPath row]];
-//    
-//    cell.companyLabel.text = haircut.hairdresser.company.name;
-//    cell.dateLabel.text = [NSString stringWithFormat:@"%@", haircut.date];
+    Haircut *haircut = [haircutsArray objectAtIndex:[indexPath row]];
+    
+    cell.companyLabel.text = haircut.hairdresser.company.name;
+    cell.dateLabel.text = [NSString stringWithFormat:@"%@", haircut.date];
+    [cell.ratingImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%dstar", haircut.rating]]];
     
     return cell;
 }
@@ -70,6 +119,7 @@
 #pragma mark UIViewController's.
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addHairCut:)];
@@ -78,6 +128,10 @@
     self.haircutsArray = [[DataManager sharedInstance] getAllHaircuts];
     
     [self.haircutsTableView registerNib:[UINib nibWithNibName:@"HaircutCustomCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+    [self.sortByDateButton setTitle:NSLocalizedString(@"newHaircutViewController.button.sortByDate", nil) forState:UIControlStateNormal];
+    [self.sortByRatingButton setTitle:NSLocalizedString(@"newHaircutViewController.button.sortByRating", nil) forState:UIControlStateNormal];
+    [self.sortByHairdresserButton setTitle:NSLocalizedString(@"newHaircutViewController.button.sortByHairdresser", nil) forState:UIControlStateNormal];
     
 }
 

@@ -14,5 +14,13 @@
 @property (nonatomic, strong) NSMutableArray *haircutsArray;
 @property (nonatomic, weak) IBOutlet UITableView *haircutsTableView;
 
+@property (nonatomic, weak) IBOutlet UIButton *sortByDateButton;
+@property (nonatomic, weak) IBOutlet UIButton *sortByRatingButton;
+@property (nonatomic, weak) IBOutlet UIButton *sortByHairdresserButton;
+
+
+-(IBAction)sortByDate:(id)sender;
+-(IBAction)sortByRating:(id)sender;
+-(IBAction)sortByHairdresser:(id)sender;
 
 @end

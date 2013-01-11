@@ -11,3 +11,6 @@
 "newHaircutViewController.placeholder.hairdresser" = "Peluquero";
 
 "newHaircutViewController.button.save" = "Guardar";
+"newHaircutViewController.button.sortByDate" = "Fecha";
+"newHaircutViewController.button.sortByRating" = "Puntuación";
+"newHaircutViewController.button.sortByHairdresser" = "Peluquero";
