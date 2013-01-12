@@ -65,10 +65,36 @@
 
 -(IBAction)sortByHairdresser:(id)sender {
     
+    NSMutableArray *sortedArray = [[NSMutableArray alloc] init];
+    NSMutableArray *hairdressersArray = [[NSMutableArray alloc] init];
+        
+    for (int x=0; x < [self.haircutsArray count]; x++) {
+        
+        BOOL nameExists = NO;
+        
+        Haircut *haircut = [self.haircutsArray objectAtIndex:x];
+        
+        NSString *hairdresserName = haircut.hairdresser.name;
+        
+        for (NSString *name in hairdressersArray) {
+            if ([name isEqualToString:hairdresserName]) nameExists = YES;
+        }
+        
+        if (!nameExists) {
+                        
+            for (int y=0; y < [self.haircutsArray count]; y++) {
+                
+                Haircut *haircuty = [self.haircutsArray objectAtIndex:y];
+                
+                if ([haircuty.hairdresser.name isEqualToString:hairdresserName]) [sortedArray addObject:haircuty];
+            }
+            
+            [hairdressersArray addObject:hairdresserName];
+        }
+    }
     
-    
-    
-    
+    self.haircutsArray = sortedArray;
+    [self.haircutsTableView reloadData];    
 }
 
 #pragma mark Actions.

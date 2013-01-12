@@ -57,7 +57,7 @@
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<object class="NSCustomResource" key="IBUIImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">haircutCellBackground@2x.png</string>
+											<string key="NSResourceName">haircutCellBackground.png</string>
 										</object>
 										<object class="NSCustomResource" key="IBUIHighlightedImage">
 											<string key="NSClassName">NSImage</string>
@@ -67,7 +67,7 @@
 									<object class="IBUIImageView" id="177404161">
 										<reference key="NSNextResponder" ref="425364813"/>
 										<int key="NSvFlags">274</int>
-										<string key="NSFrame">{{2, 2}, {45, 46}}</string>
+										<string key="NSFrame">{{1, 1}, {47, 48}}</string>
 										<reference key="NSSuperview" ref="425364813"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="533432523"/>
@@ -146,12 +146,12 @@
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="424014634"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
-										<int key="IBUIContentMode">1</int>
+										<int key="IBUIContentMode">8</int>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<object class="NSCustomResource" key="IBUIImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">5star@2x.png</string>
+											<string key="NSResourceName">5star.png</string>
 										</object>
 									</object>
 									<object class="IBUIImageView" id="424014634">
@@ -160,13 +160,12 @@
 										<string key="NSFrame">{{294, 18}, {9, 14}}</string>
 										<reference key="NSSuperview" ref="425364813"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<object class="NSCustomResource" key="IBUIImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">arrow@2x.png</string>
+											<string key="NSResourceName">arrow.png</string>
 										</object>
 									</object>
 								</array>
@@ -389,10 +388,10 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="5star@2x.png">{158, 28}</string>
-			<string key="arrow@2x.png">{18, 28}</string>
+			<string key="5star.png">{79, 14}</string>
+			<string key="arrow.png">{9, 14}</string>
 			<string key="docta.png">{305, 374}</string>
-			<string key="haircutCellBackground@2x.png">{620, 100}</string>
+			<string key="haircutCellBackground.png">{310, 50}</string>
 			<string key="transparent.png">{6, 6}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1930</string>
