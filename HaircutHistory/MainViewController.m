@@ -23,6 +23,8 @@
 @synthesize haircutsArray;
 @synthesize haircutsTableView;
 
+BOOL ascendingDate = YES;
+BOOL ascendingRating = YES;
 
 #pragma mark IBActions.
 
@@ -36,26 +38,46 @@
         Haircut *one = obj1;
         Haircut *two = obj2;
         
-        return (NSComparisonResult) [[dateFormatter dateFromString:two.date] compare:[dateFormatter dateFromString:one.date]];
+        return (NSComparisonResult)[[dateFormatter dateFromString:one.date] compare:[dateFormatter dateFromString:two.date]];
         
     }] mutableCopy];
     
     [self.haircutsTableView reloadData];
-   
+    
 }
 
 -(IBAction)sortByRating:(id)sender {
     
     NSMutableArray *sortedArray = [[NSMutableArray alloc] init];
     
-    for (int x=5; x > 0; x--) {
+    if (ascendingRating) {
         
-        for (Haircut *h in self.haircutsArray) {
+        for (int x=5; x > 0; x--) {
             
-            if (h.rating == x) {
-                [sortedArray addObject:h];
+            for (Haircut *h in self.haircutsArray) {
+                
+                if (h.rating == x) {
+                    [sortedArray addObject:h];
+                }
             }
         }
+        
+        ascendingRating = NO;
+        
+    } else {
+        
+        for (int x=0; x < 6; x++) {
+            
+            for (Haircut *h in self.haircutsArray) {
+                
+                if (h.rating == x) {
+                    [sortedArray addObject:h];
+                }
+            }
+        }
+        
+        ascendingRating = YES;
+        
     }
     
     self.haircutsArray = sortedArray;
@@ -67,7 +89,7 @@
     
     NSMutableArray *sortedArray = [[NSMutableArray alloc] init];
     NSMutableArray *hairdressersArray = [[NSMutableArray alloc] init];
-        
+    
     for (int x=0; x < [self.haircutsArray count]; x++) {
         
         BOOL nameExists = NO;
@@ -81,7 +103,7 @@
         }
         
         if (!nameExists) {
-                        
+            
             for (int y=0; y < [self.haircutsArray count]; y++) {
                 
                 Haircut *haircuty = [self.haircutsArray objectAtIndex:y];
@@ -94,7 +116,7 @@
     }
     
     self.haircutsArray = sortedArray;
-    [self.haircutsTableView reloadData];    
+    [self.haircutsTableView reloadData];
 }
 
 #pragma mark Actions.
@@ -135,7 +157,7 @@
 }
 
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {    
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 55;
 }
 
