@@ -192,40 +192,6 @@ int scrollPoint = 0;
         [self moveTextViewDown];
     }
     
-    
-    if ([textView.text length] == 70) {
-        
-        textView.textColor = [UIColor colorWithRed:0.196 green:0.549 blue:0.000 alpha:1.000];
-        
-    } else if ([textView.text length] == 75) {
-        
-        textView.textColor = [UIColor colorWithRed:0.784 green:0.906 blue:0.392 alpha:1.000];
-        
-    } else if ([textView.text length]  == 80) {
-        
-        textView.textColor = [UIColor colorWithRed:0.969 green:0.906 blue:0.392 alpha:1.000];
-
-    } else if ([textView.text length] == 85) {
-        
-        textView.textColor = [UIColor colorWithRed:1.000 green:0.689 blue:0.000 alpha:1.000];
-        
-    } else if ([textView.text length] == 90) {
-        
-        textView.textColor = [UIColor colorWithRed:1.000 green:0.529 blue:0.000 alpha:1.000];
-        
-    } else if ([textView.text length] == 95) {
-        
-        textView.textColor = [UIColor colorWithRed:1.000 green:0.321 blue:0.000 alpha:1.000];
-        
-    } else if ([textView.text length] == 100) {
-        
-        textView.textColor = [UIColor colorWithRed:0.888 green:0.000 blue:0.000 alpha:1.000];
-    
-    } else if ([textView.text length] < 70) {
-        
-        textView.textColor = [UIColor blackColor];
-    }
-    
     return  YES;
 }
 
@@ -235,9 +201,11 @@ int scrollPoint = 0;
     
     if (scrollView.contentOffset.x < 1) {
         [scrollView setShowsHorizontalScrollIndicator:NO];
+        [scrollView setPagingEnabled:NO];
         
     } else {
         [scrollView setShowsHorizontalScrollIndicator:YES];
+        [scrollView setPagingEnabled:YES];
         
         if (displayingMenu) {
             scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -293,6 +261,8 @@ int scrollPoint = 0;
     
     [super viewDidLoad];
     
+    [self.imagesScrollView setPagingEnabled:YES];
+    
     placeHolderColor = [UIColor colorWithWhite:0.702 alpha:1.000];
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"newHaircutViewController.button.save", nil) style:UIBarButtonSystemItemAction target:self action:@selector(saveHaircut:)];
@@ -339,9 +309,9 @@ int scrollPoint = 0;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
+    if (self) { }
     return self;
 }
 

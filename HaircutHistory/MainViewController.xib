@@ -82,7 +82,7 @@
 							<object class="IBUIButton" id="933810183">
 								<reference key="NSNextResponder" ref="373234525"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, -5}, {88, 44}}</string>
+								<string key="NSFrame">{{0, -7}, {88, 44}}</string>
 								<reference key="NSSuperview" ref="373234525"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="977868680"/>
@@ -114,7 +114,7 @@
 							<object class="IBUIButton" id="977868680">
 								<reference key="NSNextResponder" ref="373234525"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{104, -5}, {107, 44}}</string>
+								<string key="NSFrame">{{107, -7}, {107, 44}}</string>
 								<reference key="NSSuperview" ref="373234525"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="687121009"/>
@@ -136,7 +136,7 @@
 							<object class="IBUIButton" id="687121009">
 								<reference key="NSNextResponder" ref="373234525"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{227, -5}, {88, 44}}</string>
+								<string key="NSFrame">{{226, -7}, {88, 44}}</string>
 								<reference key="NSSuperview" ref="373234525"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -152,7 +152,7 @@
 								<reference key="IBUIFont" ref="499148688"/>
 							</object>
 						</array>
-						<string key="NSFrame">{{0, 426}, {320, 34}}</string>
+						<string key="NSFrame">{{0, 431}, {320, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="933810183"/>
@@ -327,8 +327,8 @@
 						<reference key="object" ref="373234525"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="933810183"/>
-							<reference ref="977868680"/>
 							<reference ref="687121009"/>
+							<reference ref="977868680"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>

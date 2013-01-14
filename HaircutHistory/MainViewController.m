@@ -13,6 +13,7 @@
 #import "Hairdresser.h"
 #import "Company.h"
 #import "HaircutCustomCell.h"
+#import "ViewHaircutViewController.h"
 
 @interface MainViewController ()
 
@@ -30,6 +31,8 @@ BOOL ascendingRating = YES;
 
 -(IBAction)sortByDate:(id)sender {
     
+    ascendingRating = YES;
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd/MM/yy"];
     
@@ -38,15 +41,28 @@ BOOL ascendingRating = YES;
         Haircut *one = obj1;
         Haircut *two = obj2;
         
-        return (NSComparisonResult)[[dateFormatter dateFromString:one.date] compare:[dateFormatter dateFromString:two.date]];
+        int comparisonResult = 0;
+        
+        if (ascendingDate) {
+            comparisonResult = [[dateFormatter dateFromString:one.date] compare:[dateFormatter dateFromString:two.date]];
+        
+        } else  {
+            comparisonResult = [[dateFormatter dateFromString:two.date] compare:[dateFormatter dateFromString:one.date]];
+        }
+        
+        return (NSComparisonResult) comparisonResult;
         
     }] mutableCopy];
+    
+    ascendingDate = !ascendingDate;
     
     [self.haircutsTableView reloadData];
     
 }
 
 -(IBAction)sortByRating:(id)sender {
+    
+    ascendingDate = YES;
     
     NSMutableArray *sortedArray = [[NSMutableArray alloc] init];
     
@@ -61,7 +77,6 @@ BOOL ascendingRating = YES;
                 }
             }
         }
-        
         ascendingRating = NO;
         
     } else {
@@ -75,9 +90,7 @@ BOOL ascendingRating = YES;
                 }
             }
         }
-        
-        ascendingRating = YES;
-        
+        ascendingRating = YES;        
     }
     
     self.haircutsArray = sortedArray;
@@ -162,6 +175,19 @@ BOOL ascendingRating = YES;
 }
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ViewHaircutViewController *viewHaircut = [[ViewHaircutViewController alloc] initWithNibName:@"ViewHaircutViewController" bundle:nil];
+    
+    Haircut *haircut = [self.haircutsArray objectAtIndex:indexPath.row];
+    
+    viewHaircut.title = haircut.date;
+    viewHaircut.haircut = haircut;
+        
+    [self.navigationController pushViewController:viewHaircut animated:YES];
+    
+}
+
 
 
 #pragma mark UIViewController's.
@@ -169,6 +195,7 @@ BOOL ascendingRating = YES;
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addHairCut:)];
     self.navigationItem.rightBarButtonItem = addButton;
