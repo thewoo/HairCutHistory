@@ -12,6 +12,14 @@
 
 #pragma mark UITableViewCell's.
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"Hola holiiiiiita");
+    }
+    return self;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     

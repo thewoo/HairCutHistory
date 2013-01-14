@@ -8,6 +8,8 @@
 
 #import "ViewHaircutViewController.h"
 #import "Haircut.h"
+#import "Hairdresser.h"
+#import "Company.h"
 
 @interface ViewHaircutViewController ()
 
@@ -70,13 +72,19 @@ BOOL displayingInfoView = NO;
     [self.photosScrollView setPagingEnabled:YES];
     
     self.infoView.frame = CGRectMake(0, -188, 320, 188);
+    //self.infoView.frame = CGRectMake(5, -188, 310, 188);
     [self.underneathScrollView addSubview:self.infoView];
     
     [self.underneathScrollView setContentSize:CGSizeMake(320, self.view.frame.size.height-40)];
     
+    self.companyLabel.text = [NSString stringWithFormat:@"%@ : %@", self.haircut.hairdresser.company.name, self.haircut.hairdresser.name];
     self.descriptionTextView.text = self.haircut.shapeDescription;
     [self.ratingImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%dstar_big", haircut.rating]]];
     
+    self.companyLabel.font = [UIFont fontWithName:@"CreteRound-Regular" size:17.0f];
+    self.descriptionTextView.font = [UIFont fontWithName:@"CreteRound-Regular" size:15.0f];
+    
+    [self.photosScrollView setShowsHorizontalScrollIndicator:NO];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

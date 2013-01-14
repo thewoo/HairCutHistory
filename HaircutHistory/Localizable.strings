@@ -3,6 +3,7 @@
 /* MainViewController */
 
 "mainViewController.title" = "Haircut History";
+"mainViewController.title.disappear" = "Atrás";
 
 /* NewHaircutViewController */
 

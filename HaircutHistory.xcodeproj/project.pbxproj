@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41144B3816A4A0FA003F34C5 /* CreteRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41144B3716A4A0FA003F34C5 /* CreteRound-Regular.ttf */; };
 		41ED49AE16A1F27300D258DE /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ED49AD16A1F27300D258DE /* Background@2x.png */; };
 		41ED49B016A1F45400D258DE /* 5star.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ED49AF16A1F45400D258DE /* 5star.png */; };
 		41ED49B416A1F7F900D258DE /* haircutCellBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ED49B316A1F7F900D258DE /* haircutCellBackground@2x.png */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41144B3716A4A0FA003F34C5 /* CreteRound-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CreteRound-Regular.ttf"; sourceTree = "<group>"; };
 		41ED49AD16A1F27300D258DE /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		41ED49AF16A1F45400D258DE /* 5star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5star.png; sourceTree = "<group>"; };
 		41ED49B316A1F7F900D258DE /* haircutCellBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haircutCellBackground@2x.png"; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41144B3516A4A0E6003F34C5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				41144B3716A4A0FA003F34C5 /* CreteRound-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		9B137C121681D58A001B5321 = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +228,7 @@
 		9B137C4D1681DF28001B5321 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				41144B3516A4A0E6003F34C5 /* Fonts */,
 				9B137C5D168211B0001B5321 /* Images */,
 				9B137C4E1681DF3C001B5321 /* Localizable.strings */,
 				9BC3D68F1684ACCB00D50B6B /* History.db */,
@@ -388,6 +399,7 @@
 				9B5D657D16A41EAD00B4E3E9 /* 5star_big.png in Resources */,
 				9B5D657F16A42C5600B4E3E9 /* infoViewBackground.png in Resources */,
 				9B5D658116A42C6700B4E3E9 /* infoViewBackground@2x.png in Resources */,
+				41144B3816A4A0FA003F34C5 /* CreteRound-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

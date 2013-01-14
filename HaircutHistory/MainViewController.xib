@@ -55,7 +55,7 @@
 					<object class="IBUITableView" id="303202056">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{5, 20}, {310, 361}}</string>
+						<string key="NSFrame">{{5, 2}, {310, 361}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="373234525"/>
@@ -82,7 +82,7 @@
 							<object class="IBUIButton" id="933810183">
 								<reference key="NSNextResponder" ref="373234525"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, -7}, {88, 44}}</string>
+								<string key="NSFrame">{{0, -7}, {107, 44}}</string>
 								<reference key="NSSuperview" ref="373234525"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="977868680"/>
@@ -136,7 +136,7 @@
 							<object class="IBUIButton" id="687121009">
 								<reference key="NSNextResponder" ref="373234525"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{226, -7}, {88, 44}}</string>
+								<string key="NSFrame">{{214, -7}, {107, 44}}</string>
 								<reference key="NSSuperview" ref="373234525"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -295,8 +295,8 @@
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="919619898"/>
-							<reference ref="303202056"/>
 							<reference ref="373234525"/>
+							<reference ref="303202056"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -326,9 +326,9 @@
 						<int key="objectID">41</int>
 						<reference key="object" ref="373234525"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="933810183"/>
-							<reference ref="687121009"/>
 							<reference ref="977868680"/>
+							<reference ref="687121009"/>
+							<reference ref="933810183"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>

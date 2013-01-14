@@ -17,6 +17,8 @@
 @property (nonatomic, strong) Haircut *haircut;
 
 @property (nonatomic, strong) IBOutlet UIView *infoView;
+@property (nonatomic, weak) IBOutlet UILabel *companyLabel;
+
 @property (nonatomic, weak) IBOutlet UITextView *descriptionTextView;
 @property (nonatomic, weak) IBOutlet UIImageView *ratingImageView;
 

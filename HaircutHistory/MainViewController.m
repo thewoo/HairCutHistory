@@ -163,7 +163,11 @@ BOOL ascendingRating = YES;
     Haircut *haircut = [haircutsArray objectAtIndex:[indexPath row]];
     
     cell.companyLabel.text = haircut.hairdresser.company.name;
+    cell.companyLabel.font = [UIFont fontWithName:@"CreteRound-Regular" size:14.0f];
+    
+    
     cell.dateLabel.text = [NSString stringWithFormat:@"%@", haircut.date];
+    //cell.companyLabel.font = [UIFont fontWithName:@"CreteRound-Regular" size:12.0f];
     [cell.ratingImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%dstar", haircut.rating]]];
     
     return cell;
@@ -183,7 +187,9 @@ BOOL ascendingRating = YES;
     
     viewHaircut.title = haircut.date;
     viewHaircut.haircut = haircut;
-        
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
     [self.navigationController pushViewController:viewHaircut animated:YES];
     
 }
