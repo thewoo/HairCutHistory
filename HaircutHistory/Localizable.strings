@@ -15,3 +15,9 @@
 "newHaircutViewController.button.sortByDate" = "Fecha";
 "newHaircutViewController.button.sortByRating" = "Puntuación";
 "newHaircutViewController.button.sortByHairdresser" = "Peluquero";
+
+
+/* HaircutViewController */
+
+"haircutViewController.barButton.edit" = "Editar";
+"haircutViewController.barButton.save" = "Guardar";

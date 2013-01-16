@@ -13,7 +13,7 @@
 #import "Hairdresser.h"
 #import "Company.h"
 #import "HaircutCustomCell.h"
-#import "ViewHaircutViewController.h"
+#import "HaircutViewController.h"
 
 @interface MainViewController ()
 
@@ -136,8 +136,10 @@ BOOL ascendingRating = YES;
 
 -(void)addHairCut:(UIBarButtonItem *)barButton {
     
-    NewHaircutViewController *newHaircutViewController = [[NewHaircutViewController alloc] initWithNibName:@"NewHaircutViewController" bundle:nil];
-    [self.navigationController pushViewController:newHaircutViewController animated:YES];
+    HaircutViewController *haircutViewController = [[HaircutViewController alloc] initWithNibName:@"HaircutViewController" bundle:nil];
+    haircutViewController.editMode = YES;
+    
+    [self.navigationController pushViewController:haircutViewController animated:YES];
 }
 
 
@@ -181,18 +183,23 @@ BOOL ascendingRating = YES;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ViewHaircutViewController *viewHaircut = [[ViewHaircutViewController alloc] initWithNibName:@"ViewHaircutViewController" bundle:nil];
+    HaircutViewController *viewHaircut = [[HaircutViewController alloc] initWithNibName:@"HaircutViewController" bundle:nil];
     
     Haircut *haircut = [self.haircutsArray objectAtIndex:indexPath.row];
     
     viewHaircut.title = haircut.date;
     viewHaircut.haircut = haircut;
     
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     [self.navigationController pushViewController:viewHaircut animated:YES];
     
 }
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 
 
 

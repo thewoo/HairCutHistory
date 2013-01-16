@@ -13,6 +13,7 @@
 @synthesize ID;
 @synthesize date;
 @synthesize hairdresser;
+@synthesize company;
 @synthesize shapeDescription;
 @synthesize rating;
 @synthesize price;
@@ -23,8 +24,8 @@
 - (id)init {
     
     self = [super init];
+    
     if (self) {
-        
         self.imagesArray = [[NSMutableArray alloc] init];
     }
     return self;

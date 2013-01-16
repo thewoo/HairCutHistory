@@ -64,6 +64,20 @@ int scrollPoint = 0;
     [self.imagePickerController takePicture];
 }
 
+-(IBAction)editMode:(id)sender {
+    
+    
+    [UIView animateWithDuration:0.5 animations:^{
+
+        self.doctaImageView.frame = CGRectMake(0, 0, 100, 100);
+        self.amyImageView.frame = CGRectMake(120, 0, 100, 100);
+        self.roryImageView.frame = CGRectMake(240, 0, 100, 100);
+        
+    }];
+    
+    
+}
+
 #pragma mark Actions.
 
 -(void)showForm {
@@ -269,19 +283,19 @@ int scrollPoint = 0;
     
     self.navigationItem.rightBarButtonItem = saveButton;
     
-    UIImageView *doctaImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"docta"]];
-    doctaImageView.frame = CGRectMake(0, 0, 320, 200);
+    self.doctaImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"docta"]];
+    self.doctaImageView.frame = CGRectMake(0, 0, 320, 200);
     
-    UIImageView *amyImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"amy"]];
-    amyImageView.frame = CGRectMake(320, 0, 320, 200);
+    self.amyImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"amy"]];
+    self.amyImageView.frame = CGRectMake(320, 0, 320, 200);
     
-    UIImageView *roryImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rory"]];
-    roryImageView.frame = CGRectMake(640, 0, 320, 200);
+    self.roryImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rory"]];
+    self.roryImageView.frame = CGRectMake(640, 0, 320, 200);
     
     
-    [self.imagesScrollView addSubview:doctaImageView];
-    [self.imagesScrollView addSubview:amyImageView];
-    [self.imagesScrollView addSubview:roryImageView];
+    [self.imagesScrollView addSubview:self.doctaImageView];
+    [self.imagesScrollView addSubview:self.amyImageView];
+    [self.imagesScrollView addSubview:self.roryImageView];
     
     [self.imagesScrollView setContentSize:CGSizeMake(960, 200)];
     
@@ -293,10 +307,10 @@ int scrollPoint = 0;
     [self.bottomView.layer setShadowOffset:CGSizeMake(0, -2)];
     [self.bottomView.layer setShadowOpacity:0.5];
     
-    [doctaImageView.layer setShadowPath:[UIBezierPath bezierPathWithRect:CGRectMake(0, 0, -5, 200)].CGPath];
+    [self.doctaImageView.layer setShadowPath:[UIBezierPath bezierPathWithRect:CGRectMake(0, 0, -5, 200)].CGPath];
 
-    [doctaImageView.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [doctaImageView.layer setShadowOpacity:0.5];
+    [self.doctaImageView.layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [self.doctaImageView.layer setShadowOpacity:0.5];
     
     [self.descriptionTextView setText:NSLocalizedString(@"newHaircutViewController.placeholder.description", nil)];
     self.descriptionTextView.textColor = placeHolderColor;

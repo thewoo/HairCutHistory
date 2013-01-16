@@ -36,7 +36,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         
     MainViewController *mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-    mainViewController.title = NSLocalizedString(@"mainViewController.title", nil);
+//    mainViewController.title = NSLocalizedString(@"mainViewController.title", nil);
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     [self.navController.navigationBar setBarStyle:UIBarStyleBlack];

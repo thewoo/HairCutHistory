@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class Hairdresser;
+@class Company;
 
 @interface Haircut : NSObject
 
@@ -16,6 +17,7 @@
 
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) Hairdresser *hairdresser;
+@property (nonatomic, strong) Company *company;
 @property (nonatomic, strong) NSString *shapeDescription;
 
 @property int rating;

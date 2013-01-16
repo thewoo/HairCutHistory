@@ -32,8 +32,8 @@
 		9B137C4F1681DF3C001B5321 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C4E1681DF3C001B5321 /* Localizable.strings */; };
 		9B137C5B1681E2A7001B5321 /* NewHaircutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B137C591681E2A7001B5321 /* NewHaircutViewController.m */; };
 		9B137C5C1681E2A7001B5321 /* NewHaircutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B137C5A1681E2A7001B5321 /* NewHaircutViewController.xib */; };
-		9B5D656C16A409C600B4E3E9 /* ViewHaircutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D656A16A409C600B4E3E9 /* ViewHaircutViewController.m */; };
-		9B5D656D16A409C600B4E3E9 /* ViewHaircutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D656B16A409C600B4E3E9 /* ViewHaircutViewController.xib */; };
+		9B5D656C16A409C600B4E3E9 /* HaircutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D656A16A409C600B4E3E9 /* HaircutViewController.m */; };
+		9B5D656D16A409C600B4E3E9 /* HaircutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D656B16A409C600B4E3E9 /* HaircutViewController.xib */; };
 		9B5D657916A41EAD00B4E3E9 /* 1star_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D657416A41EAD00B4E3E9 /* 1star_big.png */; };
 		9B5D657A16A41EAD00B4E3E9 /* 2star_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D657516A41EAD00B4E3E9 /* 2star_big.png */; };
 		9B5D657B16A41EAD00B4E3E9 /* 3star_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D657616A41EAD00B4E3E9 /* 3star_big.png */; };
@@ -95,9 +95,9 @@
 		9B137C581681E2A7001B5321 /* NewHaircutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewHaircutViewController.h; sourceTree = "<group>"; };
 		9B137C591681E2A7001B5321 /* NewHaircutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewHaircutViewController.m; sourceTree = "<group>"; };
 		9B137C5A1681E2A7001B5321 /* NewHaircutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewHaircutViewController.xib; sourceTree = "<group>"; };
-		9B5D656916A409C600B4E3E9 /* ViewHaircutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHaircutViewController.h; sourceTree = "<group>"; };
-		9B5D656A16A409C600B4E3E9 /* ViewHaircutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHaircutViewController.m; sourceTree = "<group>"; };
-		9B5D656B16A409C600B4E3E9 /* ViewHaircutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewHaircutViewController.xib; sourceTree = "<group>"; };
+		9B5D656916A409C600B4E3E9 /* HaircutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaircutViewController.h; sourceTree = "<group>"; };
+		9B5D656A16A409C600B4E3E9 /* HaircutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaircutViewController.m; sourceTree = "<group>"; };
+		9B5D656B16A409C600B4E3E9 /* HaircutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HaircutViewController.xib; sourceTree = "<group>"; };
 		9B5D657416A41EAD00B4E3E9 /* 1star_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1star_big.png; sourceTree = "<group>"; };
 		9B5D657516A41EAD00B4E3E9 /* 2star_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2star_big.png; sourceTree = "<group>"; };
 		9B5D657616A41EAD00B4E3E9 /* 3star_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3star_big.png; sourceTree = "<group>"; };
@@ -203,9 +203,9 @@
 				9B137C581681E2A7001B5321 /* NewHaircutViewController.h */,
 				9B137C591681E2A7001B5321 /* NewHaircutViewController.m */,
 				9B137C5A1681E2A7001B5321 /* NewHaircutViewController.xib */,
-				9B5D656916A409C600B4E3E9 /* ViewHaircutViewController.h */,
-				9B5D656A16A409C600B4E3E9 /* ViewHaircutViewController.m */,
-				9B5D656B16A409C600B4E3E9 /* ViewHaircutViewController.xib */,
+				9B5D656916A409C600B4E3E9 /* HaircutViewController.h */,
+				9B5D656A16A409C600B4E3E9 /* HaircutViewController.m */,
+				9B5D656B16A409C600B4E3E9 /* HaircutViewController.xib */,
 				9B137C281681D58A001B5321 /* Supporting Files */,
 			);
 			path = HaircutHistory;
@@ -391,7 +391,7 @@
 				41ED49BE16A1F9C500D258DE /* 2star.png in Resources */,
 				41ED49C016A1F9D200D258DE /* 1star.png in Resources */,
 				41ED49C416A2020C00D258DE /* haircutCellBackground.png in Resources */,
-				9B5D656D16A409C600B4E3E9 /* ViewHaircutViewController.xib in Resources */,
+				9B5D656D16A409C600B4E3E9 /* HaircutViewController.xib in Resources */,
 				9B5D657916A41EAD00B4E3E9 /* 1star_big.png in Resources */,
 				9B5D657A16A41EAD00B4E3E9 /* 2star_big.png in Resources */,
 				9B5D657B16A41EAD00B4E3E9 /* 3star_big.png in Resources */,
@@ -420,7 +420,7 @@
 				9BC3D67B16847C9200D50B6B /* SQLiteManager.m in Sources */,
 				9BC3D68616847E7100D50B6B /* DataManager.m in Sources */,
 				9B9D4938169EDD4500D69143 /* HaircutCustomCell.m in Sources */,
-				9B5D656C16A409C600B4E3E9 /* ViewHaircutViewController.m in Sources */,
+				9B5D656C16A409C600B4E3E9 /* HaircutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

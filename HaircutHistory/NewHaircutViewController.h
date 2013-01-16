@@ -23,15 +23,19 @@
 
 @property (nonatomic, weak) IBOutlet UITextField *companyTextField;
 
-
-
-
 @property (nonatomic, strong) IBOutlet UIView *customOverlayView;
 @property (nonatomic, weak) IBOutlet UIButton *takePictureButton;
 
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 
+
+@property (nonatomic, strong) UIImageView *doctaImageView;
+@property (nonatomic, strong) UIImageView *amyImageView;
+@property (nonatomic, strong) UIImageView *roryImageView;
+
+
 -(IBAction)addPicture:(id)sender;
 -(IBAction)takePictureButtonPressed:(id)sender;
+-(IBAction)editMode:(id)sender;
 
 @end
