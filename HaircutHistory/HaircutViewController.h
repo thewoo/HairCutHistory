@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *photosScrollView;
 
 @property (nonatomic, strong) Haircut *haircut;
+@property (nonatomic, strong) NSMutableArray *imagesArray;
 
 @property (nonatomic, strong) IBOutlet UIView *infoView;
 @property (nonatomic, strong) IBOutlet UIView *editionView;

@@ -21,3 +21,7 @@
 
 "haircutViewController.barButton.edit" = "Editar";
 "haircutViewController.barButton.save" = "Guardar";
+
+"haircutViewController.label.company" = "Peluquería";
+"haircutViewController.label.hairdresser" = "Peluquero";
+"haircutViewController.textView.description" = "Aquí deberías poner una breve pero sucinta descripción de cómo ha sido el corte. De hecho, mejor pregúntale al peluquero.";
