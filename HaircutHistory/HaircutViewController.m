@@ -10,6 +10,9 @@
 #import "Haircut.h"
 #import "Hairdresser.h"
 #import "Company.h"
+#import "StarRating.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface HaircutViewController ()
 
@@ -20,6 +23,7 @@
 @synthesize haircut;
 
 BOOL displayingInfoView = NO;
+UIColor *placeHolderColor;
 
 #pragma mark Actions.
 
@@ -35,8 +39,7 @@ BOOL displayingInfoView = NO;
 
 -(void)saveHaircut:(id)sender {
     
-    NSLog(@"Saved Haircut. Yay!");
-    
+    NSLog(@"Information checked and Saved. *Cough*");    
 }
 
 
@@ -44,14 +47,21 @@ BOOL displayingInfoView = NO;
     
     if (self.haircut == nil) {
         
-        [self.companyLabel setText:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"haircutViewController.label.company", nil), NSLocalizedString(@"haircutViewController.label.hairdresser", nil)]];
+        self.companyTextField.placeholder = NSLocalizedString(@"haircutViewController.label.company", nil);
+        self.hairdresserTextField.placeholder = NSLocalizedString(@"haircutViewController.label.hairdresser", nil);
         
-        [self.descriptionTextView setText:NSLocalizedString(@"haircutViewController.textView.description", nil)];
-        [self.descriptionTextView setTextColor:[UIColor colorWithWhite:0.702 alpha:1.000]];
+        [self.editingDescriptionTextView setText:NSLocalizedString(@"haircutViewController.textView.description", nil)];
+        [self.editingDescriptionTextView setTextColor:placeHolderColor];
         
     } else {
         
-        // Se rellenan los textFields de editionView;
+        [self.companyTextField setText:self.haircut.hairdresser.company.name];
+        [self.hairdresserTextField setText:self.haircut.hairdresser.name];
+        
+        [self.editingDescriptionTextView setText:self.haircut.shapeDescription];
+        [self.editingDescriptionTextView setTextColor:[UIColor whiteColor]];
+        
+        [self.starRatingView setRating:self.haircut.rating];
     }
     
     
@@ -168,6 +178,40 @@ BOOL displayingInfoView = NO;
 }
 
 
+#pragma mark UITextField's Delegate.
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];    
+    return YES;
+}
+
+#pragma mark UITextView's Delegate.
+
+-(void)textViewDidBeginEditing:(UITextView *)textView {
+    
+    if (textView.textColor == placeHolderColor) {
+        textView.text = @"";
+        textView.textColor = [UIColor whiteColor];
+    }
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView {
+    
+    if ([textView.text length] == 0) {
+        [textView setText:NSLocalizedString(@"haircutViewController.textView.description", nil)];
+        textView.textColor = placeHolderColor;
+    }
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+    }
+    
+    return  YES;
+}
 
 #pragma mark UIScrollView's Delegate.
 
@@ -202,7 +246,7 @@ BOOL displayingInfoView = NO;
     [super viewWillAppear:animated];
     
     self.photosScrollView.frame = CGRectMake(0, 188, self.photosScrollView.frame.size.width, self.underneathScrollView.frame.size.height);
-    [self.photosScrollView setContentSize:CGSizeMake(960, self.photosScrollView.frame.size.height)];
+    [self.photosScrollView setContentSize:CGSizeMake(self.photosScrollView.frame.size.width*[self.imagesArray count], self.photosScrollView.frame.size.height)];
     
     [self.photosScrollView setPagingEnabled:YES];
     [self.photosScrollView setShowsHorizontalScrollIndicator:NO];
@@ -210,23 +254,20 @@ BOOL displayingInfoView = NO;
     
     [self placeImagesForViewing];
     
-    
-    
     self.infoView.frame = CGRectMake(0, 0, 320, 188);
     [self.underneathScrollView addSubview:self.infoView];
     
     self.editionView.frame = CGRectMake(320, 0, 320, 188);
     [self.underneathScrollView addSubview:self.editionView];
     
+    self.starRatingView = [[StarRating alloc] initWithFrame:CGRectMake(77, 135, 166, 28)];
+    [self.editionView addSubview:self.starRatingView];
+    
     [self.underneathScrollView setContentSize:CGSizeMake(320, self.underneathScrollView.frame.size.height+188)];
     self.underneathScrollView.contentOffset = CGPointMake(0, 188);
     [self.underneathScrollView setShowsVerticalScrollIndicator:NO];
     
-}
-
-- (void)viewDidLoad {
     
-    [super viewDidLoad];
     
     if (self.editMode) {
         
@@ -243,7 +284,19 @@ BOOL displayingInfoView = NO;
         [self.ratingImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%dstar_big", haircut.rating]]];
     }
     
-    [self populateImagesArray];    
+}
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    placeHolderColor = [UIColor colorWithWhite:0.702 alpha:1.000];
+    
+    
+    
+    [self populateImagesArray];
+    
+    self.editingDescriptionTextView.layer.cornerRadius = 10.0f;
     
     self.companyLabel.font = [UIFont fontWithName:@"CreteRound-Regular" size:17.0f];
     self.descriptionTextView.font = [UIFont fontWithName:@"CreteRound-Regular" size:15.0f];

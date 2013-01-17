@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Haircut.h"
 
-@interface HaircutViewController : UIViewController <UIScrollViewDelegate>
+@class Haircut;
+@class StarRating;
+
+@interface HaircutViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @property BOOL editMode;
 
@@ -20,11 +22,17 @@
 @property (nonatomic, strong) NSMutableArray *imagesArray;
 
 @property (nonatomic, strong) IBOutlet UIView *infoView;
-@property (nonatomic, strong) IBOutlet UIView *editionView;
 
 @property (nonatomic, weak) IBOutlet UILabel *companyLabel;
-
 @property (nonatomic, weak) IBOutlet UITextView *descriptionTextView;
 @property (nonatomic, weak) IBOutlet UIImageView *ratingImageView;
+
+@property (nonatomic, strong) IBOutlet UIView *editionView;
+
+@property (nonatomic, weak) IBOutlet UITextField *companyTextField;
+@property (nonatomic, weak) IBOutlet UITextField *hairdresserTextField;
+@property (nonatomic, weak) IBOutlet UITextView *editingDescriptionTextView;
+
+@property (nonatomic, strong) StarRating *starRatingView;
 
 @end

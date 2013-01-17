@@ -38,6 +38,19 @@
 		9B4C963916A81DA0002600D4 /* 2star_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C963416A81DA0002600D4 /* 2star_big@2x.png */; };
 		9B4C963A16A81DA0002600D4 /* 4star_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C963516A81DA0002600D4 /* 4star_big@2x.png */; };
 		9B4C963B16A81DA0002600D4 /* 5star_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C963616A81DA0002600D4 /* 5star_big@2x.png */; };
+		9B4C964016A83BED002600D4 /* StarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C963F16A83BED002600D4 /* StarRating.m */; };
+		9B4C965016A8441B002600D4 /* 0star_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964616A8441B002600D4 /* 0star_rating.png */; };
+		9B4C965116A8441B002600D4 /* 1star_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964716A8441B002600D4 /* 1star_rating.png */; };
+		9B4C965216A8441B002600D4 /* 2star_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964816A8441B002600D4 /* 2star_rating.png */; };
+		9B4C965316A8441B002600D4 /* 3star_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964916A8441B002600D4 /* 3star_rating.png */; };
+		9B4C965416A8441B002600D4 /* 4star_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964A16A8441B002600D4 /* 4star_rating.png */; };
+		9B4C965516A8441B002600D4 /* 1star_rating@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964B16A8441B002600D4 /* 1star_rating@2x.png */; };
+		9B4C965616A8441B002600D4 /* 3star_rating@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964C16A8441B002600D4 /* 3star_rating@2x.png */; };
+		9B4C965716A8441B002600D4 /* 4star_rating@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964D16A8441B002600D4 /* 4star_rating@2x.png */; };
+		9B4C965816A8441B002600D4 /* 0star_rating@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964E16A8441B002600D4 /* 0star_rating@2x.png */; };
+		9B4C965916A8441B002600D4 /* 2star_rating@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964F16A8441B002600D4 /* 2star_rating@2x.png */; };
+		9B4C965C16A84452002600D4 /* 5star_rating@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C965A16A84452002600D4 /* 5star_rating@2x.png */; };
+		9B4C965D16A84452002600D4 /* 5star_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C965B16A84452002600D4 /* 5star_rating.png */; };
 		9B5D656C16A409C600B4E3E9 /* HaircutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D656A16A409C600B4E3E9 /* HaircutViewController.m */; };
 		9B5D656D16A409C600B4E3E9 /* HaircutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D656B16A409C600B4E3E9 /* HaircutViewController.xib */; };
 		9B5D657916A41EAD00B4E3E9 /* 1star_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D657416A41EAD00B4E3E9 /* 1star_big.png */; };
@@ -107,6 +120,20 @@
 		9B4C963416A81DA0002600D4 /* 2star_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2star_big@2x.png"; sourceTree = "<group>"; };
 		9B4C963516A81DA0002600D4 /* 4star_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4star_big@2x.png"; sourceTree = "<group>"; };
 		9B4C963616A81DA0002600D4 /* 5star_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5star_big@2x.png"; sourceTree = "<group>"; };
+		9B4C963E16A83BED002600D4 /* StarRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRating.h; sourceTree = "<group>"; };
+		9B4C963F16A83BED002600D4 /* StarRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRating.m; sourceTree = "<group>"; };
+		9B4C964616A8441B002600D4 /* 0star_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0star_rating.png; sourceTree = "<group>"; };
+		9B4C964716A8441B002600D4 /* 1star_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1star_rating.png; sourceTree = "<group>"; };
+		9B4C964816A8441B002600D4 /* 2star_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2star_rating.png; sourceTree = "<group>"; };
+		9B4C964916A8441B002600D4 /* 3star_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3star_rating.png; sourceTree = "<group>"; };
+		9B4C964A16A8441B002600D4 /* 4star_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4star_rating.png; sourceTree = "<group>"; };
+		9B4C964B16A8441B002600D4 /* 1star_rating@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1star_rating@2x.png"; sourceTree = "<group>"; };
+		9B4C964C16A8441B002600D4 /* 3star_rating@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3star_rating@2x.png"; sourceTree = "<group>"; };
+		9B4C964D16A8441B002600D4 /* 4star_rating@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4star_rating@2x.png"; sourceTree = "<group>"; };
+		9B4C964E16A8441B002600D4 /* 0star_rating@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0star_rating@2x.png"; sourceTree = "<group>"; };
+		9B4C964F16A8441B002600D4 /* 2star_rating@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2star_rating@2x.png"; sourceTree = "<group>"; };
+		9B4C965A16A84452002600D4 /* 5star_rating@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5star_rating@2x.png"; sourceTree = "<group>"; };
+		9B4C965B16A84452002600D4 /* 5star_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5star_rating.png; sourceTree = "<group>"; };
 		9B5D656916A409C600B4E3E9 /* HaircutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaircutViewController.h; sourceTree = "<group>"; };
 		9B5D656A16A409C600B4E3E9 /* HaircutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaircutViewController.m; sourceTree = "<group>"; };
 		9B5D656B16A409C600B4E3E9 /* HaircutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HaircutViewController.xib; sourceTree = "<group>"; };
@@ -204,11 +231,10 @@
 			children = (
 				9BC3D67816847C8700D50B6B /* SQLite */,
 				9BC3D666168454B100D50B6B /* Objects */,
+				9B4C963C16A82C32002600D4 /* CustomCells */,
+				9B4C963D16A82C56002600D4 /* StarRating */,
 				9B137C301681D58A001B5321 /* AppDelegate.h */,
 				9B137C311681D58A001B5321 /* AppDelegate.m */,
-				9B9D4936169EDD4500D69143 /* HaircutCustomCell.h */,
-				9B9D4937169EDD4500D69143 /* HaircutCustomCell.m */,
-				9B9D4939169EE70F00D69143 /* HaircutCustomCell.xib */,
 				9B137C441681D5AD001B5321 /* MainViewController.h */,
 				9B137C451681D5AD001B5321 /* MainViewController.m */,
 				9B137C461681D5AD001B5321 /* MainViewController.xib */,
@@ -269,6 +295,45 @@
 				9BC3D6621683659300D50B6B /* rory.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		9B4C963C16A82C32002600D4 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				9B9D4936169EDD4500D69143 /* HaircutCustomCell.h */,
+				9B9D4937169EDD4500D69143 /* HaircutCustomCell.m */,
+				9B9D4939169EE70F00D69143 /* HaircutCustomCell.xib */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		9B4C963D16A82C56002600D4 /* StarRating */ = {
+			isa = PBXGroup;
+			children = (
+				9B4C963E16A83BED002600D4 /* StarRating.h */,
+				9B4C963F16A83BED002600D4 /* StarRating.m */,
+				9B4C964516A84390002600D4 /* RatingStars */,
+			);
+			name = StarRating;
+			sourceTree = "<group>";
+		};
+		9B4C964516A84390002600D4 /* RatingStars */ = {
+			isa = PBXGroup;
+			children = (
+				9B4C964616A8441B002600D4 /* 0star_rating.png */,
+				9B4C964E16A8441B002600D4 /* 0star_rating@2x.png */,
+				9B4C964716A8441B002600D4 /* 1star_rating.png */,
+				9B4C964B16A8441B002600D4 /* 1star_rating@2x.png */,
+				9B4C964816A8441B002600D4 /* 2star_rating.png */,
+				9B4C964F16A8441B002600D4 /* 2star_rating@2x.png */,
+				9B4C964916A8441B002600D4 /* 3star_rating.png */,
+				9B4C964C16A8441B002600D4 /* 3star_rating@2x.png */,
+				9B4C964A16A8441B002600D4 /* 4star_rating.png */,
+				9B4C964D16A8441B002600D4 /* 4star_rating@2x.png */,
+				9B4C965B16A84452002600D4 /* 5star_rating.png */,
+				9B4C965A16A84452002600D4 /* 5star_rating@2x.png */,
+			);
+			name = RatingStars;
 			sourceTree = "<group>";
 		};
 		9B5D657316A41E8B00B4E3E9 /* stars_big */ = {
@@ -424,6 +489,18 @@
 				9B4C963916A81DA0002600D4 /* 2star_big@2x.png in Resources */,
 				9B4C963A16A81DA0002600D4 /* 4star_big@2x.png in Resources */,
 				9B4C963B16A81DA0002600D4 /* 5star_big@2x.png in Resources */,
+				9B4C965016A8441B002600D4 /* 0star_rating.png in Resources */,
+				9B4C965116A8441B002600D4 /* 1star_rating.png in Resources */,
+				9B4C965216A8441B002600D4 /* 2star_rating.png in Resources */,
+				9B4C965316A8441B002600D4 /* 3star_rating.png in Resources */,
+				9B4C965416A8441B002600D4 /* 4star_rating.png in Resources */,
+				9B4C965516A8441B002600D4 /* 1star_rating@2x.png in Resources */,
+				9B4C965616A8441B002600D4 /* 3star_rating@2x.png in Resources */,
+				9B4C965716A8441B002600D4 /* 4star_rating@2x.png in Resources */,
+				9B4C965816A8441B002600D4 /* 0star_rating@2x.png in Resources */,
+				9B4C965916A8441B002600D4 /* 2star_rating@2x.png in Resources */,
+				9B4C965C16A84452002600D4 /* 5star_rating@2x.png in Resources */,
+				9B4C965D16A84452002600D4 /* 5star_rating.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +522,7 @@
 				9BC3D68616847E7100D50B6B /* DataManager.m in Sources */,
 				9B9D4938169EDD4500D69143 /* HaircutCustomCell.m in Sources */,
 				9B5D656C16A409C600B4E3E9 /* HaircutViewController.m in Sources */,
+				9B4C964016A83BED002600D4 /* StarRating.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,11 +599,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HaircutHistory/HaircutHistory-Prefix.pch";
 				INFOPLIST_FILE = "HaircutHistory/HaircutHistory-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -533,12 +613,12 @@
 		9B137C431681D58A001B5321 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HaircutHistory/HaircutHistory-Prefix.pch";
 				INFOPLIST_FILE = "HaircutHistory/HaircutHistory-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
