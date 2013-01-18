@@ -209,7 +209,6 @@ BOOL ascendingRating = YES;
     
     [super viewDidLoad];
     
-    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addHairCut:)];
     self.navigationItem.rightBarButtonItem = addButton;
     

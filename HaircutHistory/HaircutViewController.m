@@ -28,22 +28,32 @@ UIColor *placeHolderColor;
 #pragma mark Actions.
 
 -(void)editHaircut:(id)sender {
-        
-    [self enterEditMode];
     
-    
-//    [self.underneathScrollView setScrollEnabled:NO];
-//    [self.photosScrollView setScrollEnabled:NO];
-    
+    [self enterEditMode];    
 }
 
 -(void)saveHaircut:(id)sender {
     
-    NSLog(@"Information checked and Saved. *Cough*");    
+    NSLog(@"Information checked and Saved. *Cough*");
+    
+    [self removeDeleteButtonsFromView];
+    [self leaveEditMode];
+}
+
+-(void)deleteImage:(UIButton *)deleteButton {
+    
+    UIView *image = [self.imagesArray objectAtIndex:deleteButton.tag];
+    [image removeFromSuperview];
+    [self removeDeleteButtonsFromView];
+    [self.imagesArray removeObjectAtIndex:deleteButton.tag];
+    
+    [self placeImagesForEdition];    
 }
 
 
 -(void)enterEditMode {
+    
+    [self.underneathScrollView setScrollEnabled:NO];
     
     if (self.haircut == nil) {
         
@@ -70,11 +80,12 @@ UIColor *placeHolderColor;
     [saveBarButton setTintColor:[UIColor colorWithRed:0 green:0.613 blue:1 alpha:1]];
     
     [self.navigationItem setRightBarButtonItem:saveBarButton];
-
+    
     
     [UIView animateWithDuration:0.5 animations:^{
         
         [self.underneathScrollView setContentOffset:CGPointMake(0, 0)];
+        [self.photosScrollView setContentOffset:CGPointMake(0, 0)];
         
     } completion:^(BOOL finished) {
         
@@ -86,12 +97,45 @@ UIColor *placeHolderColor;
         } completion:^(BOOL finished) {
             
             [self placeImagesForEdition];
-
+            
         }];
     }];
 }
 
--(void)placeImagesForViewing {
+-(void)leaveEditMode {
+    
+    [self.underneathScrollView setScrollEnabled:YES];
+    
+    [self.photosScrollView setContentSize:CGSizeMake([self.imagesArray count]*320, self.photosScrollView.frame.size.height)];
+    
+    UIBarButtonItem *editBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"haircutViewController.barButton.edit", nil) style:UIBarButtonSystemItemAction target:self action:@selector(editHaircut:)];
+    
+    [self.navigationItem setRightBarButtonItem:editBarButton];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        [self.photosScrollView setContentOffset:CGPointMake(0, 0)];        
+        [self placeImagesForViewing];
+        
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            self.infoView.frame = CGRectMake(0, 0, 320, 188);
+            self.editionView.frame = CGRectMake(320, 0, 320, 188);
+            
+        } completion:^(BOOL finished) {
+            
+            [self.underneathScrollView setContentOffset:CGPointMake(0, 188) animated:YES];
+        }];
+        
+    }];
+    
+    
+    
+}
+
+-(void)placeImages {
     
     for (int x = 0; x < [self.imagesArray count]; x++) {
         
@@ -100,63 +144,120 @@ UIColor *placeHolderColor;
         
         [self.photosScrollView addSubview:imageView];
     }
+}
+
+-(void)placeImagesForViewing {
     
-    
+    for (int x = 0; x < [self.imagesArray count]; x++) {
+        
+        UIImageView *imageView = [self.imagesArray objectAtIndex:x];
+        imageView.frame = CGRectMake(self.photosScrollView.frame.size.width*x, 0, self.photosScrollView.frame.size.width, self.photosScrollView.frame.size.height);
+    }
 }
 
 -(void)placeImagesForEdition {
     
+    int numberOfPages = ceil((float)[self.imagesArray count] / 6.0f);
+    [self.photosScrollView setContentSize:CGSizeMake(numberOfPages*320, self.photosScrollView.frame.size.height)];
+    
+    BOOL firstRow = YES;
+    
+    int actualPage = 0;
+    int imageCountPerRow = 0;
+    int imageCountPerPage = 0;
+    
     for (int x = 0; x < [self.imagesArray count]; x++) {
         
-        [UIView animateWithDuration:0.5 animations:^{
         
+        [UIView animateWithDuration:0.5 animations:^{
+            
             UIImageView *image = [self.imagesArray objectAtIndex:x];
             
-            if (x==0) {
-              image.frame = CGRectMake(10, 100, 93, 93);
-            
+            if (firstRow) {
+                image.frame = CGRectMake(imageCountPerRow*(10+93)+10+(actualPage*320), 15, 93, 93);
             } else {
-                image.frame = CGRectMake(x*(10+93)+10, 100, 93, 93);
+                image.frame = CGRectMake(imageCountPerRow*(10+93)+10+(actualPage*320), 30+93, 93, 93);
             }
+            
         } completion:^(BOOL finished) {
-            [self placeDeleteButtons];
+            
+            [self performSelector:@selector(placeDeleteButtons) withObject:nil afterDelay:0.5];            
         }];
+        
+        
+        imageCountPerRow++;
+        imageCountPerPage++;
+        
+        if (imageCountPerRow == 3) {
+            imageCountPerRow = 0;
+            firstRow = NO;
+        }
+        
+        if (imageCountPerPage == 6) {
+            imageCountPerPage = 0;
+            firstRow = YES;
+            actualPage++;
+        }
     }
 }
 
 -(void)placeDeleteButtons {
     
+    BOOL firstRow = YES;
+    
+    int actualPage = 0;
+    int buttonCountPerRow = 0;
+    int buttonCountPerPage = 0;
+    
+    
     for (int x = 0; x < [self.imagesArray count]; x++) {
         
         UIButton *deleteButton;
         
-        if (x == 0) {            
-            deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(x*(5+93), 85, 0, 0)];
-        
-        } else {            
-            deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(x*(5+93)+5, 85, 0, 0)];
+        if (firstRow) {
+            deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(buttonCountPerRow*(5+93)+5+(actualPage*320), 5, 0, 0)];
+        } else {
+            deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(buttonCountPerRow*(5+93)+5+(actualPage*320), 15+93, 0, 0)];
         }
         
         [deleteButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
         [deleteButton setAlpha:0];
+        [deleteButton setTag:x];
+        [deleteButton addTarget:self action:@selector(deleteImage:) forControlEvents:UIControlEventTouchDown];
         
         [self.photosScrollView addSubview:deleteButton];
         
-        [UIView animateWithDuration:1 animations:^{
+        [UIView animateWithDuration:0.5 animations:^{
             
-            if (x == 0) {
-                deleteButton.frame = CGRectMake(x*(5+93), 85, 28, 28);
-            
-            } else {
-                deleteButton.frame = CGRectMake(x*(5+93)+5, 85, 28, 28);
-            }
-            
+            deleteButton.frame = CGRectMake(deleteButton.frame.origin.x, deleteButton.frame.origin.y, 28, 28);
             [deleteButton setAlpha:1];
+            
         }];
+        
+        buttonCountPerRow++;
+        buttonCountPerPage++;
+        
+        if (buttonCountPerRow == 3) {
+            buttonCountPerRow = 0;
+            firstRow = NO;
+        }
+        
+        if (buttonCountPerPage == 6) {
+            buttonCountPerPage = 0;
+            firstRow = YES;
+            actualPage++;
+        }
     }
+}
+
+-(void)removeDeleteButtonsFromView {
     
-    
-    
+    for (UIView *view in [self.photosScrollView subviews]) {
+        
+        if ([view isKindOfClass:[UIButton class]]) {
+            [view removeFromSuperview];
+        }
+    }
 }
 
 -(void)populateImagesArray {
@@ -173,8 +274,36 @@ UIColor *placeHolderColor;
         [self.imagesArray addObject:amyImageView];
         [self.imagesArray addObject:roryImageView];
         
-    }
+        UIImageView *doctaImageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"docta"]];
+        UIImageView *amyImageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"amy"]];
+        UIImageView *roryImageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rory"]];
+        
+        [self.imagesArray addObject:doctaImageView2];
+        [self.imagesArray addObject:amyImageView2];
+        [self.imagesArray addObject:roryImageView2];
+        
+        UIImageView *doctaImageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"docta"]];
+        UIImageView *amyImageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"amy"]];
+        UIImageView *roryImageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rory"]];
+        
+        [self.imagesArray addObject:doctaImageView3];
+        [self.imagesArray addObject:amyImageView3];
+        [self.imagesArray addObject:roryImageView3];
+        
     
+    } else {
+        
+        for (int x = 0; x < [self.haircut.imagesArray count]; x++) {
+            
+            NSString *roothPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            NSString *filePath = [roothPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [self.haircut.imagesArray objectAtIndex:x]]];
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath]];
+            
+            [self.imagesArray addObject:imageView];
+        }
+        
+    }
 }
 
 
@@ -182,7 +311,7 @@ UIColor *placeHolderColor;
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [textField resignFirstResponder];    
+    [textField resignFirstResponder];
     return YES;
 }
 
@@ -221,11 +350,11 @@ UIColor *placeHolderColor;
     if (displayingInfoView == NO) {
         
         if (self.underneathScrollView.contentOffset.y < 188) {
-
+            
             [self.underneathScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
             displayingInfoView = YES;
         }
-
+        
     } else {
         
         if (self.underneathScrollView.contentOffset.y < 0) {
@@ -252,7 +381,7 @@ UIColor *placeHolderColor;
     [self.photosScrollView setShowsHorizontalScrollIndicator:NO];
     
     
-    [self placeImagesForViewing];
+    [self placeImages];
     
     self.infoView.frame = CGRectMake(0, 0, 320, 188);
     [self.underneathScrollView addSubview:self.infoView];

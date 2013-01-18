@@ -41,9 +41,15 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     [self.navController.navigationBar setBarStyle:UIBarStyleBlack];
     
-    [self.window setRootViewController:self.navController];
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titleBackgroundTexture"] forBarMetrics:UIBarMetricsDefault];
     
+    [AppDelegate checkAndCopyFileWithName:@"18011301" ofType:@"png"];
+    [AppDelegate checkAndCopyFileWithName:@"18011302" ofType:@"png"];
+    [AppDelegate checkAndCopyFileWithName:@"18011303" ofType:@"png"];
+    
+    [self.window setRootViewController:self.navController];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

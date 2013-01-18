@@ -53,6 +53,17 @@ static DataManager *instance = nil;
             haircut.rating = sqlite3_column_int(sqlStatement, 9);
             haircut.price = sqlite3_column_int(sqlStatement, 10);
             
+            NSString *imagesQuery = [NSString stringWithFormat:@"Select name from Images where haircutId = %d", haircut.ID];
+            const char *sqlImages = [imagesQuery UTF8String];
+            sqlite3_stmt *imagesStatement;
+            
+            if (sqlite3_prepare_v2([SQLiteManager getConnection], sqlImages, -1, &imagesStatement, NULL) == SQLITE_OK) {
+                
+                while (sqlite3_step(imagesStatement) == SQLITE_ROW) {
+                    [haircut.imagesArray addObject:[NSString stringWithUTF8String:(char *)sqlite3_column_text(imagesStatement, 0)]];
+                }
+            }
+            
             [haircutsArray addObject:haircut];
         }
         
