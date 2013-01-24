@@ -23,6 +23,7 @@
 @synthesize haircut;
 
 BOOL displayingInfoView = NO;
+BOOL showingShareView = NO;
 UIColor *placeHolderColor;
 
 #pragma mark Actions.
@@ -47,9 +48,86 @@ UIColor *placeHolderColor;
     [self removeDeleteButtonsFromView];
     [self.imagesArray removeObjectAtIndex:deleteButton.tag];
     
-    [self placeImagesForEdition];    
+    [self placeImagesForEdition];
 }
 
+
+-(void)addPicture:(UIButton *)addButton {
+    
+    self.alphaBackGroundView = [[UIView alloc] initWithFrame:self.view.frame];
+    [self.alphaBackGroundView setBackgroundColor:[UIColor blackColor]];
+    [self.alphaBackGroundView setAlpha:0];
+    
+    self.chooseImageSourceView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, 320, 188)];
+    [self.chooseImageSourceView setBackgroundColor:[UIColor grayColor]];
+    
+    
+    UIButton *galleryButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [galleryButton setTitle:@"Seleccinar una foto de la Galería" forState:UIControlStateNormal];
+    [galleryButton setFrame:CGRectMake(20, 20, 280, 44)];
+    
+    UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [cameraButton setTitle:@"Quiero hacer una foto!" forState:UIControlStateNormal];
+    [cameraButton setFrame:CGRectMake(20, 72, 280, 44)];
+    
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [cancelButton setTitle:@"Quiero salir de aquí!" forState:UIControlStateNormal];
+    [cancelButton setFrame:CGRectMake(20, 125, 280, 44)];
+    [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    
+    [self.chooseImageSourceView addSubview:galleryButton];
+    [self.chooseImageSourceView addSubview:cameraButton];
+    [self.chooseImageSourceView addSubview:cancelButton];
+    
+    [self.view addSubview:self.alphaBackGroundView];
+    [self.view addSubview:self.chooseImageSourceView];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+       
+        [self.alphaBackGroundView setAlpha:0.8];
+        [self.chooseImageSourceView setFrame:CGRectMake(0, self.view.frame.size.height-188, 320, 188)];
+        
+    }];
+}
+
+-(void)showImagesGallery {
+    
+}
+
+-(void)showCameraView {
+    
+}
+
+-(void)showShareView {
+    
+    self.shareView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 50)];
+    [self.shareView setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
+    
+    [self.view addSubview:self.shareView];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.shareView setFrame:CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50)];
+    }];
+}
+
+
+-(void)tapHandler:(UIGestureRecognizer *)tap {
+    
+    if (showingShareView) {
+        [self dissmissShareView];
+        showingShareView = NO;
+        
+    } else {
+        [self showShareView];
+        showingShareView = YES;
+    }
+}
+
+-(void)cancelButtonPressed:(UIButton *)cancelButton {
+    
+    [self dissmissChoosingView];
+    
+}
 
 -(void)enterEditMode {
     
@@ -131,6 +209,33 @@ UIColor *placeHolderColor;
         
     }];
     
+}
+
+-(void)dissmissChoosingView {
+    
+    [UIView animateWithDuration:0.3 animations:^{
+       
+        [self.alphaBackGroundView setAlpha:0];
+        [self.chooseImageSourceView setFrame:CGRectMake(0, self.view.frame.size.height, 320, 188)];
+        
+    } completion:^(BOOL finished) {
+        
+        [self.alphaBackGroundView removeFromSuperview];
+        [self.chooseImageSourceView removeFromSuperview];
+        
+    }];
+}
+
+-(void)dissmissShareView {
+    
+    [UIView animateWithDuration:0.3 animations:^{
+       
+        [self.shareView setFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 50)];
+        
+    } completion:^(BOOL finished) {
+        
+        [self.shareView removeFromSuperview];
+    }];
     
     
 }
@@ -183,7 +288,6 @@ UIColor *placeHolderColor;
             
             [self performSelector:@selector(placeDeleteButtons) withObject:nil afterDelay:0.5];            
         }];
-        
         
         imageCountPerRow++;
         imageCountPerPage++;
@@ -248,6 +352,18 @@ UIColor *placeHolderColor;
             actualPage++;
         }
     }
+    
+    CGRect addButtonFrame;
+    
+    if (firstRow) {
+        addButtonFrame = CGRectMake(buttonCountPerRow*(5+93)+50+(actualPage*320), 50, 28, 28);
+    
+    } else {
+        addButtonFrame = CGRectMake(buttonCountPerRow*(5+93)+50+(actualPage*320), 150, 28, 28);
+    }
+    
+    [self placeAddButtonWithFrame:addButtonFrame];
+    
 }
 
 -(void)removeDeleteButtonsFromView {
@@ -289,7 +405,6 @@ UIColor *placeHolderColor;
         [self.imagesArray addObject:doctaImageView3];
         [self.imagesArray addObject:amyImageView3];
         [self.imagesArray addObject:roryImageView3];
-        
     
     } else {
         
@@ -299,11 +414,22 @@ UIColor *placeHolderColor;
             NSString *filePath = [roothPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [self.haircut.imagesArray objectAtIndex:x]]];
             
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath]];
+            [imageView setUserInteractionEnabled:YES];
             
             [self.imagesArray addObject:imageView];
         }
         
     }
+}
+
+-(void)placeAddButtonWithFrame:(CGRect)frame {
+    
+    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [addButton setFrame:frame];
+    [addButton addTarget:self action:@selector(addPicture:) forControlEvents:UIControlEventTouchDown];
+    
+    [self.photosScrollView addSubview:addButton];
+    
 }
 
 
@@ -346,7 +472,6 @@ UIColor *placeHolderColor;
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     
-    
     if (displayingInfoView == NO) {
         
         if (self.underneathScrollView.contentOffset.y < 188) {
@@ -380,6 +505,8 @@ UIColor *placeHolderColor;
     [self.photosScrollView setPagingEnabled:YES];
     [self.photosScrollView setShowsHorizontalScrollIndicator:NO];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandler:)];
+    [self.photosScrollView addGestureRecognizer:tap];
     
     [self placeImages];
     
@@ -420,8 +547,6 @@ UIColor *placeHolderColor;
     [super viewDidLoad];
     
     placeHolderColor = [UIColor colorWithWhite:0.702 alpha:1.000];
-    
-    
     
     [self populateImagesArray];
     

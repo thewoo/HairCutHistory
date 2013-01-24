@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class Haircut;
+
 @interface DataManager : NSObject
 
 -(NSMutableArray *)getAllHaircuts;
 -(BOOL)checkForCompany:(NSString *)companyName;
+
+-(BOOL)createNewHaircut:(Haircut *)haircut;
+-(BOOL)saveNewHaircutImages:(NSMutableArray *)haircutImages;
 
 
 

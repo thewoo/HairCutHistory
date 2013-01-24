@@ -35,4 +35,8 @@
 
 @property (nonatomic, strong) StarRating *starRatingView;
 
+@property (nonatomic, strong) UIView *alphaBackGroundView;
+@property (nonatomic, strong) UIView *chooseImageSourceView;
+@property (nonatomic, strong) UIView *shareView;
+
 @end

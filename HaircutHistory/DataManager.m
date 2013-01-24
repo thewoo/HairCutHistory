@@ -16,7 +16,8 @@ static DataManager *instance = nil;
 
 @implementation DataManager
 
-#pragma mark DataBase Calls.
+
+#pragma mark DataBase Calls (Selects).
 
 -(NSMutableArray *)getAllHaircuts {
     
@@ -103,6 +104,30 @@ static DataManager *instance = nil;
 }
 
 
+#pragma mark DataBase Calls (Inserts).
+
+-(BOOL)createNewHaircut:(Haircut *)haircut {
+    
+    BOOL success = NO;
+    
+    
+    
+    
+    return success;
+}
+
+
+-(BOOL)saveNewHaircutImages:(NSMutableArray *)haircutImages {
+    
+    BOOL success = NO;
+    
+    
+    
+    
+    
+    
+    return success;
+}
 
 
 
