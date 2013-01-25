@@ -6,17 +6,16 @@
 //  Copyright (c) 2012 MagicDealers. All rights reserved.
 //
 
-#import "Haircut.h"
+#import "HairStyle.h"
 
-@implementation Haircut
+@implementation HairStyle
 
-@synthesize ID;
+@synthesize idHairStyle;
 @synthesize date;
 @synthesize hairdresser;
-@synthesize company;
+@synthesize companyName;
 @synthesize shapeDescription;
 @synthesize rating;
-@synthesize price;
 @synthesize imagesArray;
 
 #pragma mark Object's.

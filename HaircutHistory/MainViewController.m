@@ -9,11 +9,9 @@
 #import "MainViewController.h"
 #import "NewHaircutViewController.h"
 #import "DataManager.h"
-#import "Haircut.h"
-#import "Hairdresser.h"
-#import "Company.h"
+#import "HairStyle.h"
 #import "HaircutCustomCell.h"
-#import "HaircutViewController.h"
+#import "HairStyleViewController.h"
 
 @interface MainViewController ()
 
@@ -38,8 +36,8 @@ BOOL ascendingRating = YES;
     
     self.haircutsArray = [[self.haircutsArray sortedArrayUsingComparator:^(id obj1, id obj2) {
         
-        Haircut *one = obj1;
-        Haircut *two = obj2;
+        HairStyle *one = obj1;
+        HairStyle *two = obj2;
         
         int comparisonResult = 0;
         
@@ -70,7 +68,7 @@ BOOL ascendingRating = YES;
         
         for (int x=5; x > 0; x--) {
             
-            for (Haircut *h in self.haircutsArray) {
+            for (HairStyle *h in self.haircutsArray) {
                 
                 if (h.rating == x) {
                     [sortedArray addObject:h];
@@ -83,7 +81,7 @@ BOOL ascendingRating = YES;
         
         for (int x=0; x < 6; x++) {
             
-            for (Haircut *h in self.haircutsArray) {
+            for (HairStyle *h in self.haircutsArray) {
                 
                 if (h.rating == x) {
                     [sortedArray addObject:h];
@@ -100,6 +98,18 @@ BOOL ascendingRating = YES;
 
 -(IBAction)sortByHairdresser:(id)sender {
     
+    HairStyle *h = [[HairStyle alloc] init];
+    h.date = @"01-11-1986";
+    h.shapeDescription = @"Pues qué quieres que te diga. Sólo probaba. Lo prometo.";
+    h.rating = 3;
+    
+    
+    
+    [[DataManager sharedInstance] saveNewHairStyle:h];
+    
+    
+    /*  CERRADO POR OBRAS.
+    
     NSMutableArray *sortedArray = [[NSMutableArray alloc] init];
     NSMutableArray *hairdressersArray = [[NSMutableArray alloc] init];
     
@@ -107,9 +117,9 @@ BOOL ascendingRating = YES;
         
         BOOL nameExists = NO;
         
-        Haircut *haircut = [self.haircutsArray objectAtIndex:x];
+        HairStyle *hairStyle = [self.haircutsArray objectAtIndex:x];
         
-        NSString *hairdresserName = haircut.hairdresser.name;
+        NSString *hairdresserName = hairStyle.hairdresser;
         
         for (NSString *name in hairdressersArray) {
             if ([name isEqualToString:hairdresserName]) nameExists = YES;
@@ -119,9 +129,9 @@ BOOL ascendingRating = YES;
             
             for (int y=0; y < [self.haircutsArray count]; y++) {
                 
-                Haircut *haircuty = [self.haircutsArray objectAtIndex:y];
+                HairStyle *hairStylie = [self.haircutsArray objectAtIndex:y];
                 
-                if ([haircuty.hairdresser.name isEqualToString:hairdresserName]) [sortedArray addObject:haircuty];
+                if ([hairStylie.hairdresser isEqualToString:hairdresserName]) [sortedArray addObject:hairStylie];
             }
             
             [hairdressersArray addObject:hairdresserName];
@@ -130,13 +140,15 @@ BOOL ascendingRating = YES;
     
     self.haircutsArray = sortedArray;
     [self.haircutsTableView reloadData];
+     
+     */
 }
 
 #pragma mark Actions.
 
 -(void)addHairCut:(UIBarButtonItem *)barButton {
     
-    HaircutViewController *haircutViewController = [[HaircutViewController alloc] initWithNibName:@"HaircutViewController" bundle:nil];
+    HairStyleViewController *haircutViewController = [[HairStyleViewController alloc] initWithNibName:@"HaircutViewController" bundle:nil];
     haircutViewController.editMode = YES;
     
     [self.navigationController pushViewController:haircutViewController animated:YES];
@@ -162,9 +174,9 @@ BOOL ascendingRating = YES;
         cell = [[HaircutCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    Haircut *haircut = [haircutsArray objectAtIndex:[indexPath row]];
+    HairStyle *haircut = [haircutsArray objectAtIndex:[indexPath row]];
     
-    cell.companyLabel.text = haircut.hairdresser.company.name;
+    cell.companyLabel.text = haircut.companyName;
     cell.companyLabel.font = [UIFont fontWithName:@"CreteRound-Regular" size:14.0f];
     
     
@@ -183,12 +195,12 @@ BOOL ascendingRating = YES;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    HaircutViewController *viewHaircut = [[HaircutViewController alloc] initWithNibName:@"HaircutViewController" bundle:nil];
+    HairStyleViewController *viewHaircut = [[HairStyleViewController alloc] initWithNibName:@"HaircutViewController" bundle:nil];
     
-    Haircut *haircut = [self.haircutsArray objectAtIndex:indexPath.row];
+    HairStyle *haircut = [self.haircutsArray objectAtIndex:indexPath.row];
     
     viewHaircut.title = haircut.date;
-    viewHaircut.haircut = haircut;
+    viewHaircut.hairStyle = haircut;
     
 //    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
@@ -212,7 +224,7 @@ BOOL ascendingRating = YES;
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addHairCut:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
-    self.haircutsArray = [[DataManager sharedInstance] getAllHaircuts];
+    self.haircutsArray = [[DataManager sharedInstance] getAllHairStyles];
     
     [self.haircutsTableView registerNib:[UINib nibWithNibName:@"HaircutCustomCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     

@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class Haircut;
+@class HairStyle;
 @class StarRating;
 
-@interface HaircutViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UITextViewDelegate>
+@interface HairStyleViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @property BOOL editMode;
 
 @property (nonatomic, strong) IBOutlet UIScrollView *underneathScrollView;
 @property (nonatomic, strong) IBOutlet UIScrollView *photosScrollView;
 
-@property (nonatomic, strong) Haircut *haircut;
+@property (nonatomic, strong) HairStyle *hairStyle;
 @property (nonatomic, strong) NSMutableArray *imagesArray;
 
 @property (nonatomic, strong) IBOutlet UIView *infoView;

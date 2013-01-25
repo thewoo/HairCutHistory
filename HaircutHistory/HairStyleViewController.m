@@ -6,21 +6,19 @@
 //  Copyright (c) 2013 MagicDealers. All rights reserved.
 //
 
-#import "HaircutViewController.h"
-#import "Haircut.h"
-#import "Hairdresser.h"
-#import "Company.h"
+#import "HairStyleViewController.h"
+#import "HairStyle.h"
 #import "StarRating.h"
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface HaircutViewController ()
+@interface HairStyleViewController ()
 
 @end
 
-@implementation HaircutViewController
+@implementation HairStyleViewController
 
-@synthesize haircut;
+@synthesize hairStyle;
 
 BOOL displayingInfoView = NO;
 BOOL showingShareView = NO;
@@ -133,7 +131,7 @@ UIColor *placeHolderColor;
     
     [self.underneathScrollView setScrollEnabled:NO];
     
-    if (self.haircut == nil) {
+    if (self.hairStyle == nil) {
         
         self.companyTextField.placeholder = NSLocalizedString(@"haircutViewController.label.company", nil);
         self.hairdresserTextField.placeholder = NSLocalizedString(@"haircutViewController.label.hairdresser", nil);
@@ -143,13 +141,13 @@ UIColor *placeHolderColor;
         
     } else {
         
-        [self.companyTextField setText:self.haircut.hairdresser.company.name];
-        [self.hairdresserTextField setText:self.haircut.hairdresser.name];
+        [self.companyTextField setText:self.hairStyle.hairdresser];
+        [self.hairdresserTextField setText:self.hairStyle.companyName];
         
-        [self.editingDescriptionTextView setText:self.haircut.shapeDescription];
+        [self.editingDescriptionTextView setText:self.hairStyle.shapeDescription];
         [self.editingDescriptionTextView setTextColor:[UIColor whiteColor]];
         
-        [self.starRatingView setRating:self.haircut.rating];
+        [self.starRatingView setRating:self.hairStyle.rating];
     }
     
     
@@ -206,7 +204,6 @@ UIColor *placeHolderColor;
             
             [self.underneathScrollView setContentOffset:CGPointMake(0, 188) animated:YES];
         }];
-        
     }];
     
 }
@@ -380,7 +377,7 @@ UIColor *placeHolderColor;
     
     self.imagesArray = [[NSMutableArray alloc] init];
     
-    if ([self.haircut.imagesArray count] < 1) {
+    if ([self.hairStyle.imagesArray count] < 1) {
         
         UIImageView *doctaImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"docta"]];
         UIImageView *amyImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"amy"]];
@@ -408,10 +405,10 @@ UIColor *placeHolderColor;
     
     } else {
         
-        for (int x = 0; x < [self.haircut.imagesArray count]; x++) {
+        for (int x = 0; x < [self.hairStyle.imagesArray count]; x++) {
             
             NSString *roothPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-            NSString *filePath = [roothPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [self.haircut.imagesArray objectAtIndex:x]]];
+            NSString *filePath = [roothPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [self.hairStyle.imagesArray objectAtIndex:x]]];
             
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath]];
             [imageView setUserInteractionEnabled:YES];
@@ -535,9 +532,9 @@ UIColor *placeHolderColor;
         
         [self.navigationItem setRightBarButtonItem:editBarButton];
         
-        self.companyLabel.text = [NSString stringWithFormat:@"%@ : %@", self.haircut.hairdresser.company.name, self.haircut.hairdresser.name];
-        self.descriptionTextView.text = self.haircut.shapeDescription;
-        [self.ratingImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%dstar_big", haircut.rating]]];
+        self.companyLabel.text = [NSString stringWithFormat:@"%@ : %@", self.hairStyle.companyName, self.hairStyle.hairdresser];
+        self.descriptionTextView.text = self.hairStyle.shapeDescription;
+        [self.ratingImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%dstar_big", hairStyle.rating]]];
     }
     
 }

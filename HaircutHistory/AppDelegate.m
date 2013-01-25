@@ -43,6 +43,8 @@
     
 //    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titleBackgroundTexture"] forBarMetrics:UIBarMetricsDefault];
     
+    [AppDelegate checkAndCopyFileWithName:@"History" ofType:@"db"];
+    
     [AppDelegate checkAndCopyFileWithName:@"18011301" ofType:@"png"];
     [AppDelegate checkAndCopyFileWithName:@"18011302" ofType:@"png"];
     [AppDelegate checkAndCopyFileWithName:@"18011303" ofType:@"png"];

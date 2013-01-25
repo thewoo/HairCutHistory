@@ -8,9 +8,7 @@
 
 #import "DataManager.h"
 #import "SQLiteManager.h"
-#import "Haircut.h"
-#import "Hairdresser.h"
-#import "Company.h"
+#import "HairStyle.h"
 
 static DataManager *instance = nil;
 
@@ -19,12 +17,11 @@ static DataManager *instance = nil;
 
 #pragma mark DataBase Calls (Selects).
 
--(NSMutableArray *)getAllHaircuts {
+-(NSMutableArray *)getAllHairStyles {
     
     NSMutableArray *haircutsArray = [[NSMutableArray alloc] init];
-
     
-    char *sql = "Select Haircuts.haircutId, Haircuts.date, Hairdressers.hairdresserId, Hairdressers.name, Companies.companyId, Companies.name, Companies.telephone, Companies.address, Haircuts.description, Haircuts.rating, Haircuts.price from Haircuts, Hairdressers, Companies where Haircuts.hairdresserId = Hairdressers.hairdresserId and Hairdressers.companyId = Companies.companyId";
+    char *sql = "Select * from HairStyles";
     
     sqlite3_stmt *sqlStatement;
     
@@ -32,83 +29,116 @@ static DataManager *instance = nil;
         
         while (sqlite3_step(sqlStatement) == SQLITE_ROW) {
             
-            Haircut *haircut = [[Haircut alloc] init];
-            Hairdresser *hairdresser = [[Hairdresser alloc] init];
-            Company *company = [[Company alloc] init];
+            HairStyle *haircut = [[HairStyle alloc] init];
             
-            haircut.ID = sqlite3_column_int(sqlStatement, 0);
-            haircut.date = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 1)];            
+            haircut.idHairStyle = sqlite3_column_int(sqlStatement, 0);
+            haircut.date = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 1)];
             
-            hairdresser.ID = sqlite3_column_int(sqlStatement, 2);
-            hairdresser.name = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 3)];
+            haircut.shapeDescription = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 2)];
+            haircut.rating = sqlite3_column_int(sqlStatement, 3);
             
-            company.ID = sqlite3_column_int(sqlStatement, 4);
-            company.name = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 5)];
-            company.telephone = sqlite3_column_int(sqlStatement, 6);
-            company.address = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 7)];
-            
-            hairdresser.company = company;
-            haircut.hairdresser = hairdresser;
-            
-            haircut.shapeDescription = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 8)];
-            haircut.rating = sqlite3_column_int(sqlStatement, 9);
-            haircut.price = sqlite3_column_int(sqlStatement, 10);
-            
-            NSString *imagesQuery = [NSString stringWithFormat:@"Select name from Images where haircutId = %d", haircut.ID];
-            const char *sqlImages = [imagesQuery UTF8String];
-            sqlite3_stmt *imagesStatement;
-            
-            if (sqlite3_prepare_v2([SQLiteManager getConnection], sqlImages, -1, &imagesStatement, NULL) == SQLITE_OK) {
-                
-                while (sqlite3_step(imagesStatement) == SQLITE_ROW) {
-                    [haircut.imagesArray addObject:[NSString stringWithUTF8String:(char *)sqlite3_column_text(imagesStatement, 0)]];
-                }
+            if (sqlite3_column_text(sqlStatement, 4) != NULL) {
+                haircut.hairdresser = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 4)];
             }
+            
+            if (sqlite3_column_text(sqlStatement, 5) != NULL) {
+                haircut.companyName = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 5)];
+            }
+            
+            haircut.imagesArray = [self getImageNamesForHairStyleId:haircut.idHairStyle];
             
             [haircutsArray addObject:haircut];
         }
         
-    } else {
-        
+    } else {        
         NSLog(@"[DataManager] getAllHaircuts - Error: %s", sqlite3_errmsg([SQLiteManager getConnection]));
     }
     
     [SQLiteManager closeConnection];
-        
+    
     return haircutsArray;
 }
 
 
--(BOOL)checkForCompany:(NSString *)companyName {
+
+-(NSMutableArray *)getImageNamesForHairStyleId:(int)idHairStyle {
     
-    BOOL exists = NO;
+    NSMutableArray *imagesArray = [[NSMutableArray alloc] init];
     
-    char *sql = "Select name from Companies";
-    sqlite3_stmt *sqlStatement;
+    NSString *imagesQuery = [NSString stringWithFormat:@"Select name from Images where hairStyleId = %d", idHairStyle];
+    const char *sqlImages = [imagesQuery UTF8String];
+    sqlite3_stmt *imagesStatement;
     
-    if (sqlite3_prepare_v2([SQLiteManager getConnection], sql, -1, &sqlStatement, NULL) == SQLITE_OK) {
+    if (sqlite3_prepare_v2([SQLiteManager getConnection], sqlImages, -1, &imagesStatement, NULL) == SQLITE_OK) {
         
-        while (sqlite3_step(sqlStatement) == SQLITE_ROW) {
-            
-            if ([[[NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement, 0)] capitalizedString] isEqualToString:[companyName capitalizedString]]) {
-                
-                exists = YES;
-                break;
-            }
+        while (sqlite3_step(imagesStatement) == SQLITE_ROW) {
+            [imagesArray addObject:[NSString stringWithUTF8String:(char *)sqlite3_column_text(imagesStatement, 0)]];
         }
+        
+    } else {        
+        NSLog(@"[DataManager] getImageNamesForHairStyleId - Error: %s", sqlite3_errmsg([SQLiteManager getConnection]));
     }
     
     [SQLiteManager closeConnection];
     
-    return exists;
+    return imagesArray;
 }
+
+
 
 
 #pragma mark DataBase Calls (Inserts).
 
--(BOOL)createNewHaircut:(Haircut *)haircut {
+-(BOOL)saveNewHairStyle:(HairStyle *)hairStyle {
     
-    BOOL success = NO;
+    BOOL success = YES;
+    
+    NSString *insertString = [NSString stringWithFormat:@"Insert into HairStyles values (null, '%@', '%@', %d, '%@', '%@')", hairStyle.date, hairStyle.shapeDescription, hairStyle.rating, hairStyle.hairdresser, hairStyle.companyName];
+    
+    const char *insertSQL = [insertString UTF8String];
+    sqlite3_stmt *insertStatement;
+    
+    if (sqlite3_prepare_v2([SQLiteManager getConnection], insertSQL, -1, &insertStatement, NULL) == SQLITE_OK) {
+        
+        if (sqlite3_step(insertStatement) == SQLITE_DONE) {
+            
+            sqlite3_finalize(insertStatement);
+            
+        } else {
+            NSLog(@"[DataManager] saveNewHairStyle  - Error with Insertion: %s", sqlite3_errmsg([SQLiteManager getConnection]));
+            success = NO;
+        }        
+        
+    } else {        
+        NSLog(@"[DataManager] saveNewHairStyle  - Error with Insert Statement: %s", sqlite3_errmsg([SQLiteManager getConnection]));
+        success = NO;        
+    }
+    
+   
+    [SQLiteManager closeConnection];
+    
+    return success;
+}
+
+-(BOOL)saveImagesForLastestHairStyle:(NSMutableArray *)imagesArray {
+    
+    BOOL success = YES;
+    
+    int lastHairStyleId = 0;
+    
+    const char *lastIdSQL = "Select max(hairStyleId) from HairStyles";
+    sqlite3_stmt *selectStatement;
+    
+    if (sqlite3_prepare_v2([SQLiteManager getConnection], lastIdSQL, -1, &selectStatement, NULL) == SQLITE_OK) {
+        
+        while (sqlite3_step(selectStatement) == SQLITE_ROW) {
+            lastHairStyleId = sqlite3_column_int(selectStatement, 0);
+        }
+    
+    } else {
+        NSLog(@"[DataManager] saveImagesForLastestHairStyle  - Error with Select Statement: %s", sqlite3_errmsg([SQLiteManager getConnection]));
+    }
+    
     
     
     
@@ -117,14 +147,40 @@ static DataManager *instance = nil;
 }
 
 
--(BOOL)saveNewHaircutImages:(NSMutableArray *)haircutImages {
+
+
+
+
+-(BOOL)saveImages:(NSMutableArray *)imagesArray forHairStyleId:(int)hairStyleId {
     
-    BOOL success = NO;
+    BOOL success = YES;
     
+    for (int x = 0; x < [imagesArray count]; x++) {
+        
+        NSString *insertString = [NSString stringWithFormat:@"Insert into Images values (null, '%@', %d)", [imagesArray objectAtIndex:x], hairStyleId];
+        const char *insertSQL = [insertString UTF8String];
+        sqlite3_stmt *insertStatement;
+
+        
+        if (sqlite3_prepare_v2([SQLiteManager getConnection], insertSQL, -1, &insertStatement, NULL) == SQLITE_OK) {
+            
+            if (sqlite3_step(insertStatement) == SQLITE_DONE) {
+                
+                sqlite3_finalize(insertStatement);
+                
+            } else {
+                NSLog(@"[DataManager] saveImages  - Error with Insertion: %s", sqlite3_errmsg([SQLiteManager getConnection]));
+                success = NO;
+            }
+            
+        } else {
+            NSLog(@"[DataManager] saveImages  - Error with Insert Statement: %s", sqlite3_errmsg([SQLiteManager getConnection]));
+            success = NO;        
+        }
+        
+    }
     
-    
-    
-    
+    [SQLiteManager closeConnection];
     
     return success;
 }
@@ -149,11 +205,9 @@ static DataManager *instance = nil;
     
     self = [super init];
     
-    if (self) {
-        
-    }
+    if (self) {}
     
-    return self;   
+    return self;
 }
 
 @end

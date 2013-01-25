@@ -11,17 +11,16 @@
 @class Hairdresser;
 @class Company;
 
-@interface Haircut : NSObject
+@interface HairStyle : NSObject
 
-@property int ID;
+@property int idHairStyle;
 
 @property (nonatomic, strong) NSString *date;
-@property (nonatomic, strong) Hairdresser *hairdresser;
-@property (nonatomic, strong) Company *company;
+@property (nonatomic, strong) NSString *hairdresser;
+@property (nonatomic, strong) NSString *companyName;
 @property (nonatomic, strong) NSString *shapeDescription;
 
 @property int rating;
-@property int price;
 
 @property (nonatomic, strong) NSMutableArray *imagesArray;
 

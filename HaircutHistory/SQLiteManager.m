@@ -15,7 +15,11 @@ sqlite3 *connection = nil;
 
 +(void)openConnection {
     
-    NSString *dataBasePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"History.db"];
+    
+    NSString *roothPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *dataBasePath = [roothPath stringByAppendingPathComponent:@"History.db"];
+    
+//    NSString *dataBasePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"History.db"];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:dataBasePath]) {
         
@@ -23,8 +27,7 @@ sqlite3 *connection = nil;
             NSLog(@"[SQLiteManager : openConnection] - Failed to connect to the DataBase.");
         }
         
-    } else {
-        
+    } else {        
         NSLog(@"[SQLiteManager : openConnection] - History.db won't be found under: %@", dataBasePath);
     }
 }

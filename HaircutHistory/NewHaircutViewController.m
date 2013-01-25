@@ -140,11 +140,6 @@ int scrollPoint = 0;
 
 -(void)checkCompany {
     
-    if ([[DataManager sharedInstance] checkForCompany:companyTextField.text]) {
-        
-    } else {
-        [self moveTopViewAndForm];
-    }
 }
 
 

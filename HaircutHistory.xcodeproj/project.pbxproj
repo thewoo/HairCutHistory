@@ -54,8 +54,8 @@
 		9B4C965916A8441B002600D4 /* 2star_rating@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C964F16A8441B002600D4 /* 2star_rating@2x.png */; };
 		9B4C965C16A84452002600D4 /* 5star_rating@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C965A16A84452002600D4 /* 5star_rating@2x.png */; };
 		9B4C965D16A84452002600D4 /* 5star_rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C965B16A84452002600D4 /* 5star_rating.png */; };
-		9B5D656C16A409C600B4E3E9 /* HaircutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D656A16A409C600B4E3E9 /* HaircutViewController.m */; };
-		9B5D656D16A409C600B4E3E9 /* HaircutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D656B16A409C600B4E3E9 /* HaircutViewController.xib */; };
+		9B5D656C16A409C600B4E3E9 /* HairStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D656A16A409C600B4E3E9 /* HairStyleViewController.m */; };
+		9B5D656D16A409C600B4E3E9 /* HairStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D656B16A409C600B4E3E9 /* HairStyleViewController.xib */; };
 		9B5D657916A41EAD00B4E3E9 /* 1star_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D657416A41EAD00B4E3E9 /* 1star_big.png */; };
 		9B5D657A16A41EAD00B4E3E9 /* 2star_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D657516A41EAD00B4E3E9 /* 2star_big.png */; };
 		9B5D657B16A41EAD00B4E3E9 /* 3star_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5D657616A41EAD00B4E3E9 /* 3star_big.png */; };
@@ -75,9 +75,7 @@
 		9BC3D6631683659300D50B6B /* amy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6601683659300D50B6B /* amy.png */; };
 		9BC3D6641683659300D50B6B /* docta.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6611683659300D50B6B /* docta.png */; };
 		9BC3D6651683659300D50B6B /* rory.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D6621683659300D50B6B /* rory.png */; };
-		9BC3D669168476A500D50B6B /* Haircut.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D668168476A500D50B6B /* Haircut.m */; };
-		9BC3D66C1684771600D50B6B /* Hairdresser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D66B1684771600D50B6B /* Hairdresser.m */; };
-		9BC3D66F168479E700D50B6B /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D66E168479E600D50B6B /* Company.m */; };
+		9BC3D669168476A500D50B6B /* HairStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D668168476A500D50B6B /* HairStyle.m */; };
 		9BC3D67B16847C9200D50B6B /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D67A16847C9200D50B6B /* SQLiteManager.m */; };
 		9BC3D68616847E7100D50B6B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC3D68516847E7100D50B6B /* DataManager.m */; };
 		9BC3D6901684ACCB00D50B6B /* History.db in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3D68F1684ACCB00D50B6B /* History.db */; };
@@ -140,9 +138,9 @@
 		9B4C964F16A8441B002600D4 /* 2star_rating@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2star_rating@2x.png"; sourceTree = "<group>"; };
 		9B4C965A16A84452002600D4 /* 5star_rating@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5star_rating@2x.png"; sourceTree = "<group>"; };
 		9B4C965B16A84452002600D4 /* 5star_rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5star_rating.png; sourceTree = "<group>"; };
-		9B5D656916A409C600B4E3E9 /* HaircutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HaircutViewController.h; sourceTree = "<group>"; };
-		9B5D656A16A409C600B4E3E9 /* HaircutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HaircutViewController.m; sourceTree = "<group>"; };
-		9B5D656B16A409C600B4E3E9 /* HaircutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HaircutViewController.xib; sourceTree = "<group>"; };
+		9B5D656916A409C600B4E3E9 /* HairStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HairStyleViewController.h; sourceTree = "<group>"; };
+		9B5D656A16A409C600B4E3E9 /* HairStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HairStyleViewController.m; sourceTree = "<group>"; };
+		9B5D656B16A409C600B4E3E9 /* HairStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HairStyleViewController.xib; sourceTree = "<group>"; };
 		9B5D657416A41EAD00B4E3E9 /* 1star_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1star_big.png; sourceTree = "<group>"; };
 		9B5D657516A41EAD00B4E3E9 /* 2star_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2star_big.png; sourceTree = "<group>"; };
 		9B5D657616A41EAD00B4E3E9 /* 3star_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3star_big.png; sourceTree = "<group>"; };
@@ -163,12 +161,8 @@
 		9BC3D6601683659300D50B6B /* amy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amy.png; sourceTree = "<group>"; };
 		9BC3D6611683659300D50B6B /* docta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docta.png; sourceTree = "<group>"; };
 		9BC3D6621683659300D50B6B /* rory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rory.png; sourceTree = "<group>"; };
-		9BC3D667168476A500D50B6B /* Haircut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haircut.h; sourceTree = "<group>"; };
-		9BC3D668168476A500D50B6B /* Haircut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Haircut.m; sourceTree = "<group>"; };
-		9BC3D66A1684771600D50B6B /* Hairdresser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hairdresser.h; sourceTree = "<group>"; };
-		9BC3D66B1684771600D50B6B /* Hairdresser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hairdresser.m; sourceTree = "<group>"; };
-		9BC3D66D168479E600D50B6B /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
-		9BC3D66E168479E600D50B6B /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		9BC3D667168476A500D50B6B /* HairStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HairStyle.h; sourceTree = "<group>"; };
+		9BC3D668168476A500D50B6B /* HairStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HairStyle.m; sourceTree = "<group>"; };
 		9BC3D67916847C9200D50B6B /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
 		9BC3D67A16847C9200D50B6B /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
 		9BC3D68416847E7100D50B6B /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -247,9 +241,9 @@
 				9B137C581681E2A7001B5321 /* NewHaircutViewController.h */,
 				9B137C591681E2A7001B5321 /* NewHaircutViewController.m */,
 				9B137C5A1681E2A7001B5321 /* NewHaircutViewController.xib */,
-				9B5D656916A409C600B4E3E9 /* HaircutViewController.h */,
-				9B5D656A16A409C600B4E3E9 /* HaircutViewController.m */,
-				9B5D656B16A409C600B4E3E9 /* HaircutViewController.xib */,
+				9B5D656916A409C600B4E3E9 /* HairStyleViewController.h */,
+				9B5D656A16A409C600B4E3E9 /* HairStyleViewController.m */,
+				9B5D656B16A409C600B4E3E9 /* HairStyleViewController.xib */,
 				9B137C281681D58A001B5321 /* Supporting Files */,
 			);
 			path = HaircutHistory;
@@ -408,12 +402,8 @@
 			children = (
 				9BC3D68416847E7100D50B6B /* DataManager.h */,
 				9BC3D68516847E7100D50B6B /* DataManager.m */,
-				9BC3D667168476A500D50B6B /* Haircut.h */,
-				9BC3D668168476A500D50B6B /* Haircut.m */,
-				9BC3D66A1684771600D50B6B /* Hairdresser.h */,
-				9BC3D66B1684771600D50B6B /* Hairdresser.m */,
-				9BC3D66D168479E600D50B6B /* Company.h */,
-				9BC3D66E168479E600D50B6B /* Company.m */,
+				9BC3D667168476A500D50B6B /* HairStyle.h */,
+				9BC3D668168476A500D50B6B /* HairStyle.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -507,7 +497,7 @@
 				41ED49BE16A1F9C500D258DE /* 2star.png in Resources */,
 				41ED49C016A1F9D200D258DE /* 1star.png in Resources */,
 				41ED49C416A2020C00D258DE /* haircutCellBackground.png in Resources */,
-				9B5D656D16A409C600B4E3E9 /* HaircutViewController.xib in Resources */,
+				9B5D656D16A409C600B4E3E9 /* HairStyleViewController.xib in Resources */,
 				9B5D657916A41EAD00B4E3E9 /* 1star_big.png in Resources */,
 				9B5D657A16A41EAD00B4E3E9 /* 2star_big.png in Resources */,
 				9B5D657B16A41EAD00B4E3E9 /* 3star_big.png in Resources */,
@@ -551,13 +541,11 @@
 				9B137C321681D58A001B5321 /* AppDelegate.m in Sources */,
 				9B137C471681D5AD001B5321 /* MainViewController.m in Sources */,
 				9B137C5B1681E2A7001B5321 /* NewHaircutViewController.m in Sources */,
-				9BC3D669168476A500D50B6B /* Haircut.m in Sources */,
-				9BC3D66C1684771600D50B6B /* Hairdresser.m in Sources */,
-				9BC3D66F168479E700D50B6B /* Company.m in Sources */,
+				9BC3D669168476A500D50B6B /* HairStyle.m in Sources */,
 				9BC3D67B16847C9200D50B6B /* SQLiteManager.m in Sources */,
 				9BC3D68616847E7100D50B6B /* DataManager.m in Sources */,
 				9B9D4938169EDD4500D69143 /* HaircutCustomCell.m in Sources */,
-				9B5D656C16A409C600B4E3E9 /* HaircutViewController.m in Sources */,
+				9B5D656C16A409C600B4E3E9 /* HairStyleViewController.m in Sources */,
 				9B4C964016A83BED002600D4 /* StarRating.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
