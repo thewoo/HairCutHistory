@@ -29,6 +29,8 @@
 
 @property (nonatomic, strong) IBOutlet UIView *editionView;
 
+@property (nonatomic, weak) IBOutlet UISwitch *professionalSwitch;
+@property (nonatomic, weak) IBOutlet UILabel *professionalLabel;
 @property (nonatomic, weak) IBOutlet UITextField *companyTextField;
 @property (nonatomic, weak) IBOutlet UITextField *hairdresserTextField;
 @property (nonatomic, weak) IBOutlet UITextView *editingDescriptionTextView;

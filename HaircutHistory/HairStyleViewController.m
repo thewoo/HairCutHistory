@@ -22,6 +22,7 @@
 
 BOOL displayingInfoView = NO;
 BOOL showingShareView = NO;
+BOOL editMode = NO;
 UIColor *placeHolderColor;
 
 #pragma mark Actions.
@@ -73,6 +74,9 @@ UIColor *placeHolderColor;
     [cancelButton setFrame:CGRectMake(20, 125, 280, 44)];
     [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchDown];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissmissChoosingView)];
+    [self.alphaBackGroundView addGestureRecognizer:tap];
+    
     [self.chooseImageSourceView addSubview:galleryButton];
     [self.chooseImageSourceView addSubview:cameraButton];
     [self.chooseImageSourceView addSubview:cancelButton];
@@ -88,6 +92,49 @@ UIColor *placeHolderColor;
     }];
 }
 
+-(void)professionalValueChanged:(UISwitch *)senderSwitch {
+    
+    if ([senderSwitch isOn]) {        
+        [self displayProfessionalTextFields];
+    } else {        
+        [self hideProfessionalTextFields];
+    }
+    
+}
+
+-(void)displayProfessionalTextFields {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        [self.companyTextField setHidden:NO];
+        [self.hairdresserTextField setHidden:NO];
+        
+        [self.professionalLabel setAlpha:0];
+        [self.companyTextField setFrame:CGRectMake(10, 10, self.companyTextField.frame.size.width, self.companyTextField.frame.size.height)];
+        [self.hairdresserTextField setFrame:CGRectMake(140, 10, self.hairdresserTextField.frame.size.width, self.hairdresserTextField.frame.size.height)];
+        
+    }];
+    
+}
+
+-(void)hideProfessionalTextFields {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        [self.professionalLabel setAlpha:1];
+        [self.companyTextField setFrame:CGRectMake(-225, 10, self.companyTextField.frame.size.width, self.companyTextField.frame.size.height)];
+        [self.hairdresserTextField setFrame:CGRectMake(-95, 10, self.hairdresserTextField.frame.size.width, self.hairdresserTextField.frame.size.height)];
+        
+    } completion:^(BOOL finished) {
+        
+        [self.companyTextField setHidden:YES];
+        [self.hairdresserTextField setHidden:YES];
+
+    }];
+    
+}
+
+
 -(void)showImagesGallery {
     
 }
@@ -101,6 +148,13 @@ UIColor *placeHolderColor;
     self.shareView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 50)];
     [self.shareView setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
     
+    UIButton *facebookButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [facebookButton setFrame:CGRectMake(10, 10, 100, 30)];
+    [facebookButton setTitle:@"Facebook" forState:UIControlStateNormal];
+    [facebookButton addTarget:self action:@selector(shareWithFacebook:) forControlEvents:UIControlEventTouchDown];
+    
+    [self.shareView addSubview:facebookButton];
+    
     [self.view addSubview:self.shareView];
     
     [UIView animateWithDuration:0.3 animations:^{
@@ -108,17 +162,31 @@ UIColor *placeHolderColor;
     }];
 }
 
+-(void)shareWithFacebook:(UIButton *)button {
+    
+    NSLog(@"x:%f", self.photosScrollView.contentOffset.x);    
+    NSLog(@"%f", self.photosScrollView.contentOffset.x / 320);
+    NSLog(@"%@", [self.imagesArray objectAtIndex:self.photosScrollView.contentOffset.x / 320]);
+    
+//    UIImageView *x = [self.imagesArray objectAtIndex:self.photosScrollView.contentOffset.x / 320];
+    
+}
+
 
 -(void)tapHandler:(UIGestureRecognizer *)tap {
     
-    if (showingShareView) {
-        [self dissmissShareView];
-        showingShareView = NO;
+    if (!editMode) {
         
-    } else {
-        [self showShareView];
-        showingShareView = YES;
+        if (showingShareView) {
+            [self dissmissShareView];
+            showingShareView = NO;
+            
+        } else {
+            [self showShareView];
+            showingShareView = YES;
+        }
     }
+    
 }
 
 -(void)cancelButtonPressed:(UIButton *)cancelButton {
@@ -129,9 +197,14 @@ UIColor *placeHolderColor;
 
 -(void)enterEditMode {
     
+    editMode = YES;
+    
     [self.underneathScrollView setScrollEnabled:NO];
     
     if (self.hairStyle == nil) {
+        
+        [self.professionalSwitch setOn:NO];
+        [self professionalValueChanged:self.professionalSwitch];
         
         self.companyTextField.placeholder = NSLocalizedString(@"haircutViewController.label.company", nil);
         self.hairdresserTextField.placeholder = NSLocalizedString(@"haircutViewController.label.hairdresser", nil);
@@ -141,8 +214,24 @@ UIColor *placeHolderColor;
         
     } else {
         
-        [self.companyTextField setText:self.hairStyle.hairdresser];
-        [self.hairdresserTextField setText:self.hairStyle.companyName];
+        if ([self.hairStyle.hairdresser length] > 0 ) {
+            
+            [self.professionalSwitch setOn:YES];
+            [self professionalValueChanged:self.professionalSwitch];
+            
+            [self.companyTextField setText:self.hairStyle.hairdresser];
+            [self.hairdresserTextField setText:self.hairStyle.companyName];
+        
+        } else {
+            
+            [self.professionalSwitch setOn:NO];
+            [self professionalValueChanged:self.professionalSwitch];
+            
+            self.companyTextField.placeholder = NSLocalizedString(@"haircutViewController.label.company", nil);
+            self.hairdresserTextField.placeholder = NSLocalizedString(@"haircutViewController.label.hairdresser", nil);
+        }
+        
+        
         
         [self.editingDescriptionTextView setText:self.hairStyle.shapeDescription];
         [self.editingDescriptionTextView setTextColor:[UIColor whiteColor]];
@@ -179,6 +268,8 @@ UIColor *placeHolderColor;
 }
 
 -(void)leaveEditMode {
+    
+    editMode = NO;
     
     [self.underneathScrollView setScrollEnabled:YES];
     
@@ -521,7 +612,6 @@ UIColor *placeHolderColor;
     [self.underneathScrollView setShowsVerticalScrollIndicator:NO];
     
     
-    
     if (self.editMode) {
         
         [self enterEditMode];
@@ -551,6 +641,8 @@ UIColor *placeHolderColor;
     
     self.companyLabel.font = [UIFont fontWithName:@"CreteRound-Regular" size:17.0f];
     self.descriptionTextView.font = [UIFont fontWithName:@"CreteRound-Regular" size:15.0f];
+    
+    [self.professionalSwitch addTarget:self action:@selector(professionalValueChanged:) forControlEvents:UIControlEventValueChanged];
     
 }
 

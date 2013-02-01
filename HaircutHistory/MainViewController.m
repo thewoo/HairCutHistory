@@ -103,8 +103,6 @@ BOOL ascendingRating = YES;
     h.shapeDescription = @"Pues qué quieres que te diga. Sólo probaba. Lo prometo.";
     h.rating = 3;
     
-    
-    
     [[DataManager sharedInstance] saveNewHairStyle:h];
     
     
@@ -195,7 +193,7 @@ BOOL ascendingRating = YES;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    HairStyleViewController *viewHaircut = [[HairStyleViewController alloc] initWithNibName:@"HaircutViewController" bundle:nil];
+    HairStyleViewController *viewHaircut = [[HairStyleViewController alloc] initWithNibName:@"HairStyleViewController" bundle:nil];
     
     HairStyle *haircut = [self.haircutsArray objectAtIndex:indexPath.row];
     
